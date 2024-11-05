@@ -1,10 +1,32 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
+import App from "./App.tsx";
+import Kanban from "./routes/Kanban.tsx";
+import ErroPage from "./ErroPage.tsx";
+import Editar from "./routes/Editar.tsx";
 
-createRoot(document.getElementById('root')!).render(
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <ErroPage />,
+  },
+  {
+    path: "/kanban",
+    element: <Kanban />,
+    children: [
+      {
+        path: "/kanban/editar",
+        element: <Editar />,
+      },
+    ],
+  },
+]);
+
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <RouterProvider router={router} />
+  </StrictMode>
+);
