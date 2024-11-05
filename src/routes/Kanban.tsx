@@ -1,6 +1,5 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
-
 const Kanban = () => {
   return (
     <div>
