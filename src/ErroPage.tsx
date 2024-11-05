@@ -6,6 +6,7 @@ import postit from "/img/postit.png"
 
 const ErroPage = () => {
   return (
+<<<<<<< HEAD
     <div className="flex justify-center align-center mt-32 bg-white">
       
       <div className="flex items-center">
@@ -30,6 +31,10 @@ const ErroPage = () => {
 
       
         
+=======
+    <div className="flex justify-center bg-black p-9 text-red-600">
+      Pagina não encontrada :( Ops
+>>>>>>> 6d5e6688cd10d81a8119cb1f08d656df00c74e63
     </div>
 
     
