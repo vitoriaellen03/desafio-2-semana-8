@@ -24,7 +24,7 @@ const User = () => {
     <div className="pt-2 flex border-b border-b-gray-400 pb-4 ml-10 mr-10">
       <div className="mr-12">
         <h2 className="text-base font-medium">Basic Information</h2>
-        <p className="text-xs text-slate-600">Update your name and email in this section. Note: this information will be public to all your project colleagues and can be changed anytime.</p>
+        <p className="text-base text-slate-600">Update your name and email in this section. Note: this information will be public to all your project colleagues and can be changed anytime.</p>
       </div>
       <div className="flex flex-col ml-1 mr-10 p-4 w-full">
       <div className="flex space-x-4">
@@ -66,11 +66,11 @@ const User = () => {
     </div>
 
     <div className="pt-2 flex border-b border-b-gray-400 pb-4 ml-10 mr-10">
-      <div className="mr-12">
+      <div className="mr-12 w-96">
         <h2 className="text-base font-medium">Profile Picture</h2>
-        <p className="text-xs text-slate-600">Update your profile picture. Supported files are JPG, PNG, WebP and JPEG.</p>
+        <p className="text-base text-slate-600">Update your profile picture. Supported files are JPG, PNG, WebP and JPEG.</p>
       </div>
-    <div className="flex items-center space-x-14 ml-11">
+    <div className="flex items-center space-x-8 ml-32">
       <div className="w-32 h-32 rounded-full overflow-hidden">
         <img src={userImg} alt="Profile" className="w-full h-full object-cover" />
       </div>
@@ -103,9 +103,9 @@ const User = () => {
     <div className="pt-2 flex border-b border-b-gray-400 pb-4 ml-10 mr-10">
       <div className="mr-12 w-96">
         <h2 className="text-base font-medium">Communication</h2>
-        <p className="text-xs text-slate-600">Update your e-mail communication preferences anytime. Choose to receive project notifications or disable them completely.</p>
+        <p className="text-base text-slate-600">Update your e-mail communication preferences anytime. Choose to receive project notifications or disable them completely.</p>
     </div>
-    <div className="flex flex-col justify-center space-y-4 ml-16">
+    <div className="flex flex-col justify-center space-y-4 ml-32">
      <div>
         <div className="flex items-center">
           <input type="checkbox" id="tasks-checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2" />
@@ -133,9 +133,9 @@ const User = () => {
     <div className="pt-2 ml-10 flex">
       <div className="mr-12 w-96">
         <h2 className="text-base font-medium">Social information</h2>
-        <p className="text-xs text-slate-600">Update your e-mail communication preferences anytime. Choose to receive project notifications or disable them completely.</p>
+        <p className="text-base text-slate-600">Update your e-mail communication preferences anytime. Choose to receive project notifications or disable them completely.</p>
       </div>
-    <div className="flex flex-col space-y-4 ml-16">
+    <div className="flex flex-col space-y-4 ml-32">
     <div>
       <label className="text-xs font-normal text-gray-700 mb-1 block">Twitter/X</label>
       <div className="flex space-x-2">
