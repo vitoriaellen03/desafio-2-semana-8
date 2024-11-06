@@ -31,6 +31,7 @@ export default {
         FCE7C2: "#FCE7C2",
         D3D1F8: "#D3D1F8",
         C8F0D7: "#C8F0D7",
+        475569: "#475569",
       },
       fontFamily: {
         roboto: ["Roboto"],

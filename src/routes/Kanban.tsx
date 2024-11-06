@@ -3,6 +3,8 @@ import { Outlet, Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Card from "../components/Card";
+import frame4 from "/img/Frame (4).png";
+
 const Kanban = () => {
   return (
     <div className="lg:h-screen w-full">
@@ -29,8 +31,8 @@ const Kanban = () => {
             </div>
             <div className="div-scroll-to-do lg:flex flex-col gap-5 h-full pr-1  overflow-y-auto ">
               {/* Card  */}
-              <Card />
-              <Card />
+              <Card value={"mid"} color={"#4F46E5"} />
+              <Card value={"low"} color={"#4F46E5"} />
             </div>
           </div>
           {/* in-progress */}
@@ -53,10 +55,9 @@ const Kanban = () => {
             </div>
             <div className="div-scroll-in-progress lg:flex flex-col gap-5 h-full pr-1  overflow-y-auto ">
               {/* Card  */}
-              <Card />
-              <Card />
-              <Card />
-              <Card />
+              <Card value={"high"} color={"#F59E0B"} />
+              <Card value={"high"} color={"#F59E0B"} />
+              <Card value={"low"} color={"#F59E0B"} />
             </div>
           </div>
           {/* done */}
@@ -79,10 +80,8 @@ const Kanban = () => {
             </div>
             <div className="div-scroll-done lg:flex flex-col gap-5 h-full pr-1  overflow-y-auto ">
               {/* Card  */}
-              <Card />
-              <Card />
-              <Card />
-              <Card />
+              <Card value={"low"} img={frame4} color={"#22C55E"} />
+              <Card value={"low"} img={frame4} color={"#22C55E"} />
             </div>
           </div>
         </div>
