@@ -19,6 +19,8 @@ export default {
         "emphasis-blue": "#92bbff",  
         "emphasis-yellow": "#FCF4B6",  
         "emphasis-content": "#92bbff",
+        "color-green": "#22C55E",
+        "h-green": "#5CB77D",
       },
       fontFamily: {
         roboto: ["Roboto"],
