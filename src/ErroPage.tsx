@@ -18,10 +18,8 @@ const ErroPage = () => {
         <p className="font-family: roboto text-justify text-lg">
           Oops! Nothing to see here, just a lost kanban task.
         </p>
-        <div className="text-right font-family: roboto text-md text-decoration-line: underline pt-2 color:#4f46e5 ">
-          <a>
-            Go back to home
-            </a>
+        <div className="text-right ext-decoration-line: underline pt-2">
+            <a href="/">Go back to home</a>
         </div>
         </div>
       </div>  

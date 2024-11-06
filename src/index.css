@@ -13,6 +13,15 @@
     font-family: "Roboto";
 }
 
+/* Links */
+a {
+    @apply text-link font-bold;
+}
+a:hover {
+    @apply text-h-link font-bold;
+}
+/**/
+
 /* Buttons Styles */
 /* Global btn */
 .btn {
