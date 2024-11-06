@@ -6,7 +6,7 @@ const Header = () => {
       <nav class="navbar columns">
         <div class="logo column">
           <a href="/">
-            <img src="/assets/images/logo.svg" alt="Logo"/>
+            <img src="../public/img/logo.png" alt="Logo"/>
               <h2 class="title">Project Manager</h2>
           </a>
         </div>
