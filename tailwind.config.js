@@ -21,13 +21,24 @@ export default {
         "emphasis-content": "#92bbff",
         "color-green": "#22C55E",
         "h-green": "#5CB77D",
+        wordColor: "#331436",
+        blueHover: "#3B5174",
       },
       fontFamily: {
         roboto: ["Roboto"],
       },
       spacing: {
         hundrend: "100px",
-        sixty: "60px"
+        sixty: "60px",
+        '353': "353px",
+        '400': "400px",
+        '508': "508px",
+        '520': "520px",
+        '624': "624px",
+        '625': "625px",
+        '626': "626px",
+        '656': "656px",
+        '1000': "1000px",
       },
       gradientColorStops: {
         "gradient-purple": "#FC04BA",
