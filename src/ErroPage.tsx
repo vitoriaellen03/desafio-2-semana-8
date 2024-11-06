@@ -17,7 +17,7 @@ const ErroPage = () => {
             <p className="text-justify text-lg">
               Oops! Nothing to see here, just a lost kanban task.
             </p>
-            <div className="text-right ext-decoration-line: underline pt-2">
+            <div className="text-right text-decoration-line: underline pt-2">
               <a href="/">Go back to home</a>
             </div>
           </div>
