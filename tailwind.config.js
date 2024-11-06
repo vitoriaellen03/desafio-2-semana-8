@@ -4,7 +4,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#1E293B",
+        primary: "#1E293B",  
+        white: "#FFF",                    
+        black: "#000",
+        button: "#3B5174", 
+        "color-btn": "#160A60",
+        "found-btn": "#F8F2FF",
+        "blue-100": "#5C5A79",              
+        "blue-200": "#3B5174",              
+        "blue-300": "#1E293B", 
+        "blue-400": "#6C7D96",             
+        link: "#4F46E5",
+        "h-link": "#268FE4",   
+        "emphasis-blue": "#92bbff",  
+        "emphasis-yellow": "#FCF4B6",  
+        "emphasis-content": "#92bbff",
       },
       fontFamily: {
         roboto: ["Roboto"],
