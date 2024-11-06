@@ -76,3 +76,4 @@ form [data-type="login"], form [data-type="create-acount"] {
 [data-type="create"]:hover {
     @apply bg-h-green;
 }
+
