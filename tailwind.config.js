@@ -4,30 +4,55 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#1E293B",  
-        white: "#FFF",                    
+        primary: "#1E293B",
+        white: "#FFF",
         black: "#000",
-        button: "#3B5174", 
+        button: "#3B5174",
         "color-btn": "#160A60",
         "found-btn": "#F8F2FF",
-        "blue-100": "#5C5A79",              
-        "blue-200": "#3B5174",              
-        "blue-300": "#1E293B", 
-        "blue-400": "#6C7D96",             
+        "blue-100": "#5C5A79",
+        "blue-200": "#3B5174",
+        "blue-300": "#1E293B",
+        "blue-400": "#6C7D96",
         link: "#4F46E5",
-        "h-link": "#268FE4",   
-        "emphasis-blue": "#92bbff",  
-        "emphasis-yellow": "#FCF4B6",  
+        "h-link": "#268FE4",
+        "emphasis-blue": "#92bbff",
+        "emphasis-yellow": "#FCF4B6",
         "emphasis-content": "#92bbff",
         "color-green": "#22C55E",
         "h-green": "#5CB77D",
+
+        "1E293B": "#1E293B",
+        D9D9D9: "#D9D9D9",
+        "6C7D96": "#6C7D96",
+        "4F46E5": "#4F46E5",
+        F59E0B: "#F59E0B",
+        "22C55E": "#22C55E",
+        FCE7C2: "#FCE7C2",
+        D3D1F8: "#D3D1F8",
+        C8F0D7: "#C8F0D7",
       },
       fontFamily: {
         roboto: ["Roboto"],
       },
+      height: {
+        "h-587": "36.65rem",
+        "h-538": "33.62rem",
+        "h-553": "34.5625rem",
+        "h-182": "182px",
+      },
+      width: {
+        "w-1051": "65.68rem",
+        "w-18.63": "18.63rem",
+        "w-310": "19.375rem",
+        "w-278": "17.375rem",
+      },
+      borderRadius: {
+        "4xl": "1.90rem",
+      },
       spacing: {
         hundrend: "100px",
-        sixty: "60px"
+        sixty: "60px",
       },
       gradientColorStops: {
         "gradient-purple": "#FC04BA",
@@ -36,4 +61,4 @@ export default {
     },
   },
   plugins: [],
-}
+};
