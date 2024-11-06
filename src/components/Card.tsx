@@ -1,3 +1,5 @@
+import ProgressBar from "@ramonak/react-progress-bar";
+
 const Card = () => {
   return (
     <div className="div-card h-h-182  w-w-278 p-3 bg-white rounded-3xl">
@@ -6,6 +8,7 @@ const Card = () => {
           Mid
         </p>
         <h3 className="text-base font-bold">Task 3</h3>
+        <ProgressBar height="8px" completed={50} />
       </div>
     </div>
   );
