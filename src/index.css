@@ -1,12 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("boxicons/css/boxicons.min.css");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* css kanban */
+/* .container-tasks {
+  background-image: url("../src/public/img/Draggable-area.png");
+} */
+
+/* stylen bar scroll */
+.div-scroll-to-do::-webkit-scrollbar {
+  width: 10px;
+  background-color: #d3d1f8;
+}
+
+.div-scroll-to-do::-webkit-scrollbar-thumb {
+  background-color: #4f46e5;
+  border-radius: 50px;
+}
+
+.div-scroll-in-progress::-webkit-scrollbar {
+  width: 10px;
+  background-color: #fce7c2;
+}
+
+.div-scroll-in-progress::-webkit-scrollbar-thumb {
+  background-color: #f59e0b;
+  border-radius: 50px;
+}
+
+.div-scroll-done::-webkit-scrollbar {
+  width: 10px;
+  background-color: #c8f0d7;
+}
+
+.div-scroll-done::-webkit-scrollbar-thumb {
+  background-color: #22c55e;
+  border-radius: 50px;
+}
+/* the end stylen bar scroll */
+
 .icons {
-    @apply flex justify-center items-center w-8 h-8 rounded-full bg-white
+  @apply flex justify-center items-center w-8 h-8 rounded-full bg-white;
 }
 
 .buttonDark {
@@ -37,54 +74,78 @@
     @apply text-red-700 w-520
 }
 
-*{
-    font-family: "Roboto";
+* {
+  font-family: "Roboto";
 }
 
 /* Links */
 a {
-    @apply text-link font-bold;
+  @apply text-link font-bold;
 }
 a:hover {
-    @apply text-h-link font-bold;
+  @apply text-h-link font-bold;
 }
 /**/
 
-/* Buttons Styles */
-/* Global btn */
+/* Global Styles for all buttons */
 .btn {
-    @apply rounded-lg p-3 w-60 text-center font-medium text-lg transition ease-in-out duration-300 cursor-pointer;
+  @apply capitalize rounded-lg p-3 w-60 text-center font-medium text-lg transition ease-in-out duration-300 cursor-pointer;
 }
 
-/* Styles btn */
-.btn-main {
-    @apply text-white rounded-[30px] border border-white border-solid;
+/* Styles based on data-type attribute */
+header [data-type="login"] {
+  @apply text-white rounded-[30px] border border-white border-solid;
+}
+form [data-type="login"],
+form [data-type="create-acount"] {
+  @apply rounded-lg p-3 w-full  text-center border-none font-medium text-lg transition ease-in-out duration-300 cursor-pointer;
 }
 
-.btn-norm {
-    @apply text-color-btn bg-found-btn;
-}
-.btn-green {
-    @apply text-white bg-color-green;
+[data-type="get-started"] {
+  @apply text-white rounded-[30px] border border-white border-solid;
 }
 
-/* Hover btn */
-.btn-main:hover {
-    @apply border-h-link;
+[data-type="learn-more"] {
+  @apply text-color-btn bg-found-btn;
 }
-.btn-green:hover{
-    @apply bg-h-green;
+
+[data-type="view-all"] {
+  @apply text-color-btn bg-found-btn;
 }
-.h-100:hover {
-    @apply text-white bg-blue-100;
+
+[data-type="subscribe"],
+[data-type="update-info"],
+form [data-type="login"],
+form [data-type="create-acount"] {
+  @apply text-white bg-blue-300;
 }
-.h-200:hover {
-    @apply text-white bg-blue-200;
+
+[data-type="create"] {
+  @apply text-white w-full bg-color-green;
 }
-.h-300:hover {
-    @apply text-white bg-blue-300;
+
+/* Hover effects based on data-type attribute */
+[data-type="login"]:hover,
+[data-type="get-started"]:hover {
+  @apply border-h-link;
 }
-.btn-norm-300 {
-    @apply text-white bg-blue-300;
+
+[data-type="learn-more"]:hover {
+  @apply text-white bg-blue-100;
 }
-/**/
+
+[data-type="view-all"]:hover {
+  @apply text-white bg-blue-300;
+}
+
+[data-type="subscribe"]:hover,
+form [data-type="create-acount"]:hover,
+[data-type="update-info"]:hover,
+form [data-type="login"]:hover {
+  @apply text-white bg-blue-200;
+}
+
+[data-type="create"]:hover {
+  @apply bg-h-green;
+}
+
