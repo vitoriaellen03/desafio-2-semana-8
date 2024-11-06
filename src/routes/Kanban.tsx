@@ -11,12 +11,12 @@ const Kanban = () => {
         <div className="container-tasks lg:flex items-center justify-center gap-5 h-h-587 w-w-1051 bg-slate-500 bg-opacity-25 rounded-4xl">
           {/* to-do */}
           <div className="container-to-do lg:flex flex-col items-center gap-4 pb-2 h-h-553 w-w-310  bg-1E293B bg-opacity-25 rounded-4xl">
-            <div className="div-add-quantity lg:flex justify-between items-center pl-3 pr-3 relative bottom-2 h-12 w-full bg-D3D1F8 rounded-4xl">
+            <div className="div-add-quantity lg:flex justify-between items-center pl-3 pr-3 relative bottom-2 h-11 w-full bg-D3D1F8 rounded-4xl">
               <div className="lg:flex gap-2 items-center">
                 <p className=" lg:flex justify-center items-center h-8 w-10 bg-4F46E5 rounded-4xl text-white">
                   25
                 </p>
-                <h2 className="text-4F46E5 font-bold">To do</h2>
+                <h2 className="text-4F46E5 font-bold text-base">To do</h2>
               </div>
               <button
                 className=""
@@ -40,7 +40,7 @@ const Kanban = () => {
                 <p className=" lg:flex justify-center items-center h-8 w-10 bg-F59E0B rounded-4xl text-white">
                   8
                 </p>
-                <h2 className="text-F59E0B font-bold">In progress</h2>
+                <h2 className="text-F59E0B font-bold text-base">In progress</h2>
               </div>
               <button
                 className=""
@@ -66,7 +66,7 @@ const Kanban = () => {
                 <p className=" lg:flex justify-center items-center h-8 w-10 bg-22C55E rounded-4xl text-white">
                   2
                 </p>
-                <h2 className="text-22C55E font-bold">Done</h2>
+                <h2 className="text-22C55E font-bold text-base">Done</h2>
               </div>
               <button
                 className=""
