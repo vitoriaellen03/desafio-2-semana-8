@@ -120,3 +120,4 @@ form [data-type="login"]:hover {
 [data-type="create"]:hover {
   @apply bg-h-green;
 }
+
