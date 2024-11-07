@@ -6,11 +6,9 @@
 @tailwind utilities;
 
 /* css kanban */
-.container-tasks {
-  background-image: url("/img/Draggable-area.png");
-  background-size: cover;
-  background-repeat: repeat;
-}
+/* .container-tasks {
+  background-image: url("../src/public/img/Draggable-area.png");
+} */
 
 
 /* Header */
@@ -168,6 +166,14 @@ footer a:hover {
 
 /**/
 
+/*Tipografy*/
+input {
+  line-height: 20px;
+  border-radius: 6px;
+  padding: 8px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: transparent;
+}
 
 
 /* Main */
