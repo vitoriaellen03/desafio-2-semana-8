@@ -6,7 +6,6 @@ import "./index.css";
 import App from "./App.tsx";
 import Kanban from "./routes/Kanban.tsx";
 import ErroPage from "./ErroPage.tsx";
-import Editar from "./routes/Editar.tsx";
 import User from "./routes/UserSettings.tsx";
 import Profile from "./routes/ProfilePage.tsx";
 import BlockedPage from "./routes/BlockedPage.tsx";
@@ -20,12 +19,6 @@ const router = createBrowserRouter([
   {
     path: "/kanban",
     element: <Kanban />,
-    children: [
-      {
-        path: "/kanban/editar",
-        element: <Editar />,
-      },
-    ],
   },
   {
     path: "/settings",
