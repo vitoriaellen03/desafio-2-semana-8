@@ -9,6 +9,7 @@ import ErroPage from "./ErroPage.tsx";
 import Editar from "./routes/Editar.tsx";
 import User from "./routes/UserSettings.tsx";
 import Profile from "./routes/ProfilePage.tsx";
+import BlockedPage from "./routes/BlockedPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <Profile />,
+  },
+  {
+    path: "/BlockedPage",
+    element: <BlockedPage />,
   }
 ]);
 
