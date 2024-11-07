@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         primary: "#1E293B",
+        "light-blue": "#F6F6F6"
       },
       fontFamily: {
         roboto: ["Roboto"],
@@ -15,7 +16,7 @@ export default {
       },
       gradientColorStops: {
         "gradient-purple": "#FC04BA",
-        "gradient-yellow": "#FFC702",
+        "gradient-yellow": "#FFC702"
       },
     },
   },
