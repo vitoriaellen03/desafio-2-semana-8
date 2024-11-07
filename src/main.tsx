@@ -1,3 +1,4 @@
+import React from "react";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -7,6 +8,7 @@ import Kanban from "./routes/Kanban.tsx";
 import ErroPage from "./ErroPage.tsx";
 import Editar from "./routes/Editar.tsx";
 import User from "./routes/UserSettings.tsx";
+import Profile from "./routes/ProfilePage.tsx";
 import BlockedPage from "./routes/BlockedPage.tsx";
 
 const router = createBrowserRouter([
@@ -28,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/settings",
     element: <User />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
   },
   {
     path: "/BlockedPage",

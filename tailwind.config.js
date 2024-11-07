@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         primary: "#1E293B",
+        "light-blue": "#F6F6F6",
         white: "#FFF",
         black: "#000",
         button: "#3B5174",
@@ -66,7 +67,7 @@ export default {
       },
       gradientColorStops: {
         "gradient-purple": "#FC04BA",
-        "gradient-yellow": "#FFC702",
+        "gradient-yellow": "#FFC702"
       },
     },
   },
