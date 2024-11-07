@@ -54,6 +54,7 @@ export default {
       spacing: {
         hundrend: "100px",
         sixty: "60px",
+        '251': "251px",
         '353': "353px",
         '400': "400px",
         '508': "508px",
@@ -62,6 +63,9 @@ export default {
         '625': "625px",
         '626': "626px",
         '656': "656px",
+        '723': "723px",
+        '760': "760px",
+        '800': "800px",
         '1000': "1000px",
       },
       gradientColorStops: {
