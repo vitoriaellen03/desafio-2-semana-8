@@ -48,6 +48,34 @@
   @apply flex justify-center items-center w-8 h-8 rounded-full bg-white;
 }
 
+.buttonDark {
+    @apply w-80 md:w-508 lg:w-353 xl:w-508 h-12 bg-primary rounded-lg text-white hover:bg-blueHover
+}
+
+.buttonIcons {
+    @apply w-24 h-14 rounded-full border border-opacity-20 hover:border-opacity-70 hover:border-blue-500
+}
+
+.buttonIcons img {
+    @apply w-6 h-6 justify-self-center
+}
+
+.loginSection {
+    @apply absolute top-4 left-9 md:top-44 md:left-16 w-353 md:w-656 h-624 bg-white rounded-3xl z-10 flex flex-col items-center justify-center text-wordColor gap-8 lg:static lg:rounded-none lg:items-start lg:w-auto xl:h-auto
+}
+
+.inputs {
+    @apply flex flex-col gap-2
+}
+
+.erro {
+    @apply border-red-700
+}
+
+.erro-message {
+    @apply text-red-700 w-520
+}
+
 * {
   font-family: "Roboto";
 }

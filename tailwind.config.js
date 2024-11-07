@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         primary: "#1E293B",
+        "light-blue": "#F6F6F6",
         white: "#FFF",
         black: "#000",
         button: "#3B5174",
@@ -21,7 +22,8 @@ export default {
         "emphasis-content": "#92bbff",
         "color-green": "#22C55E",
         "h-green": "#5CB77D",
-
+        wordColor: "#331436",
+        blueHover: "#3B5174",
         "1E293B": "#1E293B",
         D9D9D9: "#D9D9D9",
         "6C7D96": "#6C7D96",
@@ -66,10 +68,19 @@ export default {
       spacing: {
         hundrend: "100px",
         sixty: "60px",
+        '353': "353px",
+        '400': "400px",
+        '508': "508px",
+        '520': "520px",
+        '624': "624px",
+        '625': "625px",
+        '626': "626px",
+        '656': "656px",
+        '1000': "1000px",
       },
       gradientColorStops: {
         "gradient-purple": "#FC04BA",
-        "gradient-yellow": "#FFC702",
+        "gradient-yellow": "#FFC702"
       },
     },
   },
