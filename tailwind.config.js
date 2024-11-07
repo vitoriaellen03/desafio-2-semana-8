@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         primary: "#1E293B",
+        "light-blue": "#F6F6F6",
         white: "#FFF",
         black: "#000",
         button: "#3B5174",
@@ -32,21 +33,34 @@ export default {
         FCE7C2: "#FCE7C2",
         D3D1F8: "#D3D1F8",
         C8F0D7: "#C8F0D7",
+        475569: "#475569",
+        F6F6F6: "#F6F6F6",
+        C7C3FFAC: "#C7C3FFAC",
       },
       fontFamily: {
         roboto: ["Roboto"],
+      },
+      fontSize: {
+        "8px": "0.5rem",
+        "10px": "0.625rem",
+        "5px": "0.3125rem",
       },
       height: {
         "h-587": "36.65rem",
         "h-538": "33.62rem",
         "h-553": "34.5625rem",
         "h-182": "182px",
+        "h-115": "7.1875rem",
+        "h-200": "13.3rem",
+        "h-75": "4.75rem",
       },
       width: {
         "w-1051": "65.68rem",
         "w-18.63": "18.63rem",
         "w-310": "19.375rem",
         "w-278": "17.375rem",
+        "w-135": "8.4375rem",
+        "w-109": "6.8125rem",
       },
       borderRadius: {
         "4xl": "1.90rem",
@@ -70,7 +84,7 @@ export default {
       },
       gradientColorStops: {
         "gradient-purple": "#FC04BA",
-        "gradient-yellow": "#FFC702",
+        "gradient-yellow": "#FFC702"
       },
     },
   },
