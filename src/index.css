@@ -6,9 +6,11 @@
 @tailwind utilities;
 
 /* css kanban */
-/* .container-tasks {
-  background-image: url("../src/public/img/Draggable-area.png");
-} */
+.container-tasks {
+  background-image: url("/img/Draggable-area.png");
+  background-size: cover;
+  background-repeat: repeat;
+}
 
 /* stylen bar scroll */
 .div-scroll-to-do::-webkit-scrollbar {
