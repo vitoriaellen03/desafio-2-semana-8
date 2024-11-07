@@ -6,13 +6,14 @@ const Header = () => {
       <nav class="navbar columns">
         <div class="logo column">
           <a href="/">
-            <img src="/img/logo.png" alt="Logo"/>
-              <h2 class="title">Project Manager</h2>
+            <img src="/img/logo.png" alt="Logo" />
+            <h2 class="title">Project Manager</h2>
           </a>
         </div>
 
         <div class="column menu">
-          <ul class="nav-menu">
+          <ul class="nav-menu ">
+            
           </ul>
           <div class="hamburger default"></div>
         </div>
