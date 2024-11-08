@@ -1,14 +1,17 @@
 import React from "react";
+import { Outlet, Link } from "react-router-dom";
 
 const CreationModal = () => {
   return (
-    <div className="container-creation-modal flex justify-center items-center h-screen w-full bg-black bg-opacity-60">
+    <div className="container-creation-modal flex  items-center h-full w-full p-24 bg-black bg-opacity-60 absolute">
       {/* create modal */}
       <div className="create-modal flex flex-col gap-3 h-h-584 w-w-1001 pt-4 pr-11 pb-4 pl-11 bg-F6F6F6  rounded-2xl">
         <div className="container-title-exit flex justify-between w-full text-2xl font-semibold">
           <h2 className="text-color-btn">Create new task</h2>
-          <button className="text-BD2323">
-            <i className="fa-solid fa-xmark"></i>
+          <button className="">
+            <Link to={"/kanban"}>
+              <i className="fa-solid fa-xmark text-BD2323"></i>
+            </Link>
           </button>
         </div>
         {/* container edit */}
@@ -213,7 +216,10 @@ const CreationModal = () => {
               </div>
               {/* Priority */}
 
-              <button className="flex justify-center items-center w-full h-12 text-white bg-color-green rounded-md text-base font-medium mt-8">
+              {/* <button className="flex justify-center items-center w-full h-12 text-white bg-color-green rounded-md text-base font-medium mt-8">
+                Create!
+              </button> */}
+              <button className="btn mt-8" data-type="create">
                 Create!
               </button>
             </div>

@@ -6,11 +6,11 @@ import "./index.css";
 import App from "./App.tsx";
 import Kanban from "./routes/Kanban.tsx";
 import ErroPage from "./ErroPage.tsx";
-import Editar from "./routes/Editar.tsx";
 import User from "./routes/UserSettings.tsx";
 import Profile from "./routes/ProfilePage.tsx";
 import BlockedPage from "./routes/BlockedPage.tsx";
 import CreationModal from "./components/CreationModal.tsx";
+import Login from "./routes/Login.tsx";
 
 const router = createBrowserRouter([
   {
@@ -23,8 +23,8 @@ const router = createBrowserRouter([
     element: <Kanban />,
     children: [
       {
-        path: "/kanban/editar",
-        element: <Editar />,
+        path: "/kanban/createModal",
+        element: <CreationModal />,
       },
     ],
   },
@@ -41,9 +41,13 @@ const router = createBrowserRouter([
     element: <BlockedPage />,
   },
   {
-    path: "/createModal",
-    element: <CreationModal />,
+    path: "login",
+    element: <Login />,
   },
+  // {
+  //   path: "/createModal",
+  //   element: <CreationModal />,
+  // },
 ]);
 
 createRoot(document.getElementById("root")!).render(

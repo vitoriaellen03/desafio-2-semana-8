@@ -9,10 +9,10 @@ import avatar7 from "/img/avatar/Rectangle 10.svg";
 
 const Kanban = () => {
   return (
-    <div className="lg:h-screen w-full">
+    <div className="lg:h-screen w-full relative">
       {/* <Header /> */}
       <Header />
-      <main className="lg:flex items-center justify-center h-5/6 w-full bg-white">
+      <main className="lg:flex items-center justify-center h-full w-full bg-white">
         <div className="container-tasks lg:flex items-center justify-center gap-5 h-h-587 w-w-1051  bg-opacity-25 rounded-4xl">
           {/* to-do */}
           <div className="container-to-do lg:flex flex-col items-center gap-4 pb-2 h-h-553 w-w-310  bg-1E293B bg-opacity-10 rounded-4xl">
@@ -23,13 +23,10 @@ const Kanban = () => {
                 </p>
                 <h2 className="text-4F46E5 font-bold text-base">To do</h2>
               </div>
-              <button
-                className=""
-                onClick={() => {
-                  alert("Crie sua task");
-                }}
-              >
-                <i className="fa-solid fa-plus text-2xl text-4F46E5"></i>
+              <button className="">
+                <Link to={"/kanban/createModal"}>
+                  <i className="fa-solid fa-plus text-2xl text-4F46E5"></i>
+                </Link>
               </button>
             </div>
             <div className="div-scroll-to-do lg:flex flex-col gap-5 h-full pr-1  overflow-y-auto ">
@@ -48,13 +45,10 @@ const Kanban = () => {
                 </p>
                 <h2 className="text-F59E0B font-bold text-base">In progress</h2>
               </div>
-              <button
-                className=""
-                onClick={() => {
-                  alert("Crie sua task");
-                }}
-              >
-                <i className="fa-solid fa-plus text-2xl text-F59E0B"></i>
+              <button>
+                <Link to={"/kanban/createModal"}>
+                  <i className="fa-solid fa-plus text-2xl text-F59E0B"></i>
+                </Link>
               </button>
             </div>
             <div className="div-scroll-in-progress lg:flex flex-col gap-5 h-full pr-1  overflow-y-auto ">
@@ -73,13 +67,10 @@ const Kanban = () => {
                 </p>
                 <h2 className="text-22C55E font-bold text-base">Done</h2>
               </div>
-              <button
-                className=""
-                onClick={() => {
-                  alert("Crie sua task");
-                }}
-              >
-                <i className="fa-solid fa-plus text-2xl text-22C55E"></i>
+              <button>
+                <Link to={"/kanban/createModal"}>
+                  <i className="fa-solid fa-plus text-2xl text-22C55E"></i>
+                </Link>
               </button>
             </div>
             <div className="div-scroll-done lg:flex flex-col gap-5 h-full pr-1  overflow-y-auto ">
@@ -215,6 +206,7 @@ const Kanban = () => {
             </div>
           </div>
         </div>
+        <Outlet />
       </main>
       <Footer />
     </div>
