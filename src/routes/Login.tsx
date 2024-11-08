@@ -1,7 +1,10 @@
-import logo from "../../public/img/loginPhoto.png";
-import googleIcon from "../../public/img/googleIcon.png";
-import facebookIcon from "../../public/img/faceIcon.png";
+import logo from "/img/loginPhoto.png";
+import googleIcon from "/img/googleIcon.png";
+import facebookIcon from "/img/faceIcon.png";
 import { Link } from "react-router-dom";
+import { SignInButton } from "@clerk/clerk-react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const Login = () => {
 
@@ -38,8 +41,10 @@ const Login = () => {
   
 
   return (
+    <>
+    <Header />
     <main className="text-sm relative md:text-base lg:flex lg:gap-20 lg:static xl:gap-44">
-      <img src={logo} alt="" className="object-cover w-full h-656 md:h-1000 relative z-0 opacity-30 lg:w-520 xl:w-625 lg:h-626 lg:opacity-100 lg:static" />
+      <img src={logo} alt="" className="object-cover w-full h-656 md:h-1000 relative z-0 opacity-30 lg:w-520 xl:w-625 lg:h-656 lg:opacity-100 lg:static" />
       <div className="loginSection">
         <section className="text-center md:text-start md:ml-16 md:self-start lg:ml-0">
           <h1 className="font-bold mb-6 text-base md:text-5xl">Login information</h1>
@@ -74,13 +79,23 @@ const Login = () => {
           <div className="flex flex-col gap-2 self-center text-center">
             <p>or sign in with...</p>
             <div className="flex gap-3">
-              <button className="buttonIcons"><img src={facebookIcon} alt="Facebook icon"/></button>
-              <button className="buttonIcons"><img src={googleIcon} alt="Google icon"/></button>
+            <SignInButton forceRedirectUrl="/kanban">
+                <button className="buttonIcons">
+                  <img src={facebookIcon} alt="Facebook icon" />
+                </button>
+                </SignInButton>
+                <SignInButton forceRedirectUrl="/kanban">
+                  <button className="buttonIcons">
+                    <img src={googleIcon} alt="Google icon" />
+                  </button>
+                </SignInButton>
             </div>
           </div>
         </section>
       </div>
     </main>
+    <Footer />
+    </>
   );
 };
 

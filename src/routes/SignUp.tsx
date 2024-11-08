@@ -1,7 +1,10 @@
-import logo from "../assets/img/loginPhoto.png";
-import facebookIcon from "../../public/img/faceIcon.png";
-import googleIcon from "../../public/img/googleIcon.png";
+import logo from "/img/photoSign.png";
+import facebookIcon from "/img/faceIcon.png";
+import googleIcon from "/img/googleIcon.png";
 import { Link } from "react-router-dom";
+import { SignInButton } from "@clerk/clerk-react";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 const Login = () => {
 
@@ -85,6 +88,8 @@ const Login = () => {
   }
 
   return (
+    <>
+    <Header />
     <div className="text-sm relative md:text-base lg:flex lg:flex-row-reverse lg:gap-20 lg:static xl:gap-44">
       <img
         src={logo}
@@ -174,17 +179,23 @@ const Login = () => {
           <div className="flex flex-col gap-2 self-center text-center">
             <p>or sign up with...</p>
             <div className="flex gap-3">
-              <button className="buttonIcons">
-                <img src={facebookIcon} alt="Facebook icon" />
-              </button>
-              <button className="buttonIcons">
-                <img src={googleIcon} alt="Google icon" />
-              </button>
+              <SignInButton forceRedirectUrl="/kanban">
+                <button className="buttonIcons">
+                  <img src={facebookIcon} alt="Facebook icon" />
+                </button>
+                </SignInButton>
+              <SignInButton forceRedirectUrl="/kanban">
+                  <button className="buttonIcons">
+                    <img src={googleIcon} alt="Google icon" />
+                  </button>
+                </SignInButton>
             </div>
           </div>
         </section>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 
