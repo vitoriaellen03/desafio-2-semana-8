@@ -13,7 +13,7 @@ function App() {
                         <h1 className="title">Welcome to <span className="text-emphasis-blue">Project Manager</span></h1>
                         <p className="text">Get your projects and ideas in order, all in one place! Sign up now and discover a
                             smarter way to manage your work with efficiency and teamwork</p>
-                        <button className="btn" data-type="get-started" onClick={() => window.location.href = '/'}>Get Started</button>
+                        <button className="btn" data-type="get-started" onClick={() => window.location.href = '/signup'}>Get Started</button>
                     </div>
                     <div className="column flo">
                         <img className="floatwoman" src="/img/woman.png" alt="" />
