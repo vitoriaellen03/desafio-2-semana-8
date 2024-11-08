@@ -12,6 +12,7 @@ import Profile from "./routes/ProfilePage.tsx";
 import BlockedPage from "./routes/BlockedPage.tsx";
 import CreationModal from "./components/CreationModal.tsx";
 import Login from "./routes/Login.tsx";
+import Default from "./layouts/default.tsx";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
@@ -21,36 +22,44 @@ if (!PUBLISHABLE_KEY) {
 
 const router = createBrowserRouter([
   {
+    path: "*",
+    element: <ErroPage />,
+  },
+  {
     path: "/",
-    element: <App />,
-    errorElement: <ErroPage />,
+    element: <Default />,
+    children: [ {
+      path: "",
+      element: <App />,
+    },
+    {
+      path: "/kanban",
+      element: <Kanban />,
+      children: [
+        {
+          path: "/kanban/createModal",
+          element: <CreationModal />,
+        },
+      ],
+    },
+    {
+      path: "/settings",
+      element: <User />,
+    },
+    {
+      path: "/profile",
+      element: <Profile />,
+    },
+    {
+      path: "/blocked",
+      element: <BlockedPage />,
+    },  {
+      path: "/login",
+      element: <Login />,
+    },]
   },
-  {
-    path: "/kanban",
-    element: <Kanban />,
-    children: [
-      {
-        path: "/kanban/createModal",
-        element: <CreationModal />,
-      },
-    ],
-  },
-  {
-    path: "/settings",
-    element: <User />,
-  },
-  {
-    path: "/profile",
-    element: <Profile />,
-  },
-  {
-    path: "/BlockedPage",
-    element: <BlockedPage />,
-  },
-  {
-    path: "login",
-    element: <Login />,
-  },
+ 
+ 
   // {
   //   path: "/createModal",
   //   element: <CreationModal />,
