@@ -8,7 +8,7 @@ const Card = ({ value, img, color }) => {
   let mid;
   let high;
   let low;
-  const progress: number = 30;
+  const progress: number = 65;
 
   function typePerformance() {
     if (performance == "mid") {

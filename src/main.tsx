@@ -10,6 +10,7 @@ import Editar from "./routes/Editar.tsx";
 import User from "./routes/UserSettings.tsx";
 import Profile from "./routes/ProfilePage.tsx";
 import BlockedPage from "./routes/BlockedPage.tsx";
+import CreationModal from "./components/CreationModal.tsx";
 
 const router = createBrowserRouter([
   {
@@ -38,7 +39,11 @@ const router = createBrowserRouter([
   {
     path: "/BlockedPage",
     element: <BlockedPage />,
-  }
+  },
+  {
+    path: "/createModal",
+    element: <CreationModal />,
+  },
 ]);
 
 createRoot(document.getElementById("root")!).render(

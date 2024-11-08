@@ -36,6 +36,7 @@ const Kanban = () => {
               {/* Card  */}
               <Card value={"mid"} color={"#4F46E5"} />
               <Card value={"low"} color={"#4F46E5"} />
+              <Card value={"mid"} color={"#4F46E5"} />
             </div>
           </div>
           {/* in-progress */}
@@ -84,6 +85,7 @@ const Kanban = () => {
             <div className="div-scroll-done lg:flex flex-col gap-5 h-full pr-1  overflow-y-auto ">
               {/* Card  */}
               <Card value={"low"} img={frame4} color={"#22C55E"} />
+              <Card value={"low"} img={""} color={"#22C55E"} />
             </div>
           </div>
         </div>
