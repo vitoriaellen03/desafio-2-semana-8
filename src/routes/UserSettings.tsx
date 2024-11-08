@@ -1,4 +1,4 @@
-import React from "react";
+import { useUser } from "@clerk/clerk-react"
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import userImg from "/img/userImg.png";
@@ -7,17 +7,22 @@ import uploadBin from "/img/uploadBin.png";
 import db from "../data/db.json";
 
 const User = () => {
+  const { user } = useUser();
   return (
     <div>
       <Header />
       <div className="flex flex-col md:flex-row ml-4 md:ml-10 mt-8 md:mt-16">
-        <img src={userImg} alt="user's profile photo" className="w-32 h-32 md:w-44 md:h-44" />
+        <img 
+        src={user?.hasImage ? user.imageUrl : userImg}
+        alt="user's profile photo" 
+        className="w-32 h-32 md:w-44 md:h-44" 
+        />
         <div className="flex flex-col mt-4 md:mt-0 md:ml-4">
           <h1 className="text-3xl md:text-5xl font-medium">
-            {db.users[0].firstName} {db.users[0].lastName}
+            {user?.firstName} {user?.lastName}
           </h1>
           <p className="text-sm md:text-lg font-normal text-slate-600">
-            {db.users[0].email}
+            {user?.primaryEmailAddress?.emailAddress}
           </p>
         </div>
       </div>
