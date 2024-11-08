@@ -12,7 +12,7 @@ const location = useLocation()
     if (isSignedIn) {
       navigate('/kanban');
     } else {
-        if (location.pathname === "/login") return
+        if (location.pathname === "/login" || location.pathname === "/signup" ) return
         navigate('/blocked')
     }
   }, [isSignedIn, navigate]);
