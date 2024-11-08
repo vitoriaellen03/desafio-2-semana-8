@@ -49,7 +49,7 @@ const router = createBrowserRouter([
     element: <BlockedPage />,
   },
   {
-    path: "login",
+    path: "/login",
     element: <Login />,
   },
   {
