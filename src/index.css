@@ -284,6 +284,10 @@ input {
   @apply absolute top-4 left-9 md:top-44 md:left-16 w-353 md:w-656 h-624 bg-white rounded-3xl z-10 flex flex-col items-center justify-center text-wordColor gap-8 lg:static lg:rounded-none lg:items-start lg:w-auto xl:h-auto;
 }
 
+.signSection {
+  @apply absolute top-4 left-9 md:top-44 md:left-16 w-353 md:w-656 h-760 bg-white rounded-3xl z-10 flex flex-col items-center justify-center text-wordColor gap-8 lg:static lg:rounded-none lg:items-start lg:w-auto xl:h-auto
+}
+
 .inputs {
   @apply flex flex-col gap-2;
 }

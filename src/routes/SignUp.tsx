@@ -1,7 +1,10 @@
-import logo from "../assets/img/loginPhoto.png";
-import facebookIcon from "../../public/img/faceIcon.png";
-import googleIcon from "../../public/img/googleIcon.png";
+import logo from "/img/photoSign.png";
+import facebookIcon from "/img/faceIcon.png";
+import googleIcon from "/img/googleIcon.png";
 import { Link } from "react-router-dom";
+import { SignInButton } from "@clerk/clerk-react";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 const Login = () => {
 
@@ -38,9 +41,10 @@ const Login = () => {
 
   const validateName = () => {
     const name = document.getElementById("name") as HTMLInputElement;
+    const nameRegex = /^[A-ZÁ-Úa-zá-ú]+$/i;
     const span = document.getElementById("nameError") as HTMLSpanElement;
 
-    if (name.value.length < 3) {
+    if (name.value.length < 2 && nameRegex.test(name.value)) {
       span.classList.add("erro-message")
       span.classList.remove("hidden");
       name.classList.add("erro");
@@ -53,9 +57,10 @@ const Login = () => {
 
   const validateLast = () => {
     const lastname = document.getElementById("lastname") as HTMLInputElement;
+    const lastRegex = /^[A-ZÁ-Úa-zá-ú]+$/i;
     const lastspan = document.getElementById("lastError") as HTMLSpanElement;
 
-    if (lastname.value.length < 3) {
+    if (lastname.value.length < 2 && lastRegex.test(lastname.value)) {
       lastspan.classList.add("erro-message")
       lastspan.classList.remove("hidden");
       lastname.classList.add("erro");
@@ -66,7 +71,25 @@ const Login = () => {
     }
   }
 
+  const validateJob = () => {
+    const job = document.getElementById("job") as HTMLInputElement;
+    const jobRegex = /^[A-ZÁ-Úa-zá-ú]+$/i;
+    const jobspan = document.getElementById("jobError") as HTMLSpanElement;
+
+    if (job.value.length > 4 && jobRegex.test(job.value)) {
+      jobspan.classList.add("erro-message")
+      jobspan.classList.remove("hidden");
+      job.classList.add("erro");
+    } else {
+      job.classList.remove("erro");
+      jobspan.classList.remove("erro-message");
+      jobspan.classList.add("hidden");
+    }
+  }
+
   return (
+    <>
+    <Header />
     <div className="text-sm relative md:text-base lg:flex lg:flex-row-reverse lg:gap-20 lg:static xl:gap-44">
       <img
         src={logo}
@@ -94,7 +117,7 @@ const Login = () => {
                 onChange={validateName}
               />
               <span className="hidden" id="nameError">
-                The name must be bigger than 3 characters.
+                The name must be bigger than 2 characters.
               </span>
             </div>
             <div className=" md:flex flex-col md:flex-row w-60 mt-5 md:mt-0 md:ml-5">
@@ -108,7 +131,7 @@ const Login = () => {
                   onChange={validateLast}
                 />
                 <span className="hidden" id="lastError">
-                The last name must be bigger than 3 characters.
+                The last name must be bigger than 2 characters.
               </span>
               </div>
             </div>
@@ -127,9 +150,14 @@ const Login = () => {
             <label>Job position</label>
             <input
               type="text"
+              id="jobPosition"
               placeholder="Enter your job position (example: Project Manager)"
+              onChange={validateJob}
               className="h-9 w-80 md:w-520 lg:w-400 xl:w-520 pl-2 border rounded-lg border-opacity-10 border-black"
             />
+            <span className="hidden" id="jobError">
+              The job position must be at least bigger than 4 characters, and no numbers.
+            </span>
           </div>
           <div className="inputs">
             <label>Password</label>
@@ -151,17 +179,23 @@ const Login = () => {
           <div className="flex flex-col gap-2 self-center text-center">
             <p>or sign up with...</p>
             <div className="flex gap-3">
-              <button className="buttonIcons">
-                <img src={facebookIcon} alt="Facebook icon" />
-              </button>
-              <button className="buttonIcons">
-                <img src={googleIcon} alt="Google icon" />
-              </button>
+              <SignInButton forceRedirectUrl="/kanban">
+                <button className="buttonIcons">
+                  <img src={facebookIcon} alt="Facebook icon" />
+                </button>
+                </SignInButton>
+              <SignInButton forceRedirectUrl="/kanban">
+                  <button className="buttonIcons">
+                    <img src={googleIcon} alt="Google icon" />
+                  </button>
+                </SignInButton>
             </div>
           </div>
         </section>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

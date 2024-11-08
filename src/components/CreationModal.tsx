@@ -69,20 +69,20 @@ const CreationModal = () => {
               <div className="start-date flex flex-col gap-2">
                 <h3 className="text-wordColor font-medium">Start Date</h3>
                 <div className="flex gap-4">
-                  <div className="date flex items-center gap-4 pt-2 pr-4 pb-2 pl-4 div-date w-w-185 h-h-52 bg-white rounded-md border-black border-2 border-opacity-10 hover:border-black">
+                  <div className="date flex items-center pt-2 pr-4 pb-2 pl-4 div-date w-w-185 h-h-52 bg-white rounded-md border-black border-2 border-opacity-10 hover:border-black">
                     {/* <i className="fa-solid fa-calendar-days text-2xl opacity-50"></i> */}
                     <i className="fa-regular fa-calendar-days text-2xl opacity-50"></i>
                     <input
-                      className=" text-center opacity-50 text-14px outline-none"
+                      className="text-center opacity-50 text-14px outline-none border-none"
                       type="date"
                       name="date"
                       id="date"
                     />
                   </div>
-                  <div className="time flex items-center gap-4 w-w-107 h-h-52 pt-2 pr-4 pb-2 pl-4 bg-white rounded-md border-black border-2 border-opacity-10 hover:border-black ">
+                  <div className="time flex items-center gap-1 w-w-107 h-h-52 pt-2 pr-4 pb-2 pl-4 bg-white rounded-md border-black border-2 border-opacity-10 hover:border-black ">
                     <i className="fa-regular fa-clock text-2xl opacity-50"></i>
                     <input
-                      className=" text-14px opacity-50 outline-none"
+                      className="text-14px opacity-50 outline-none border-none"
                       type="time"
                       name="time"
                       id="time"
@@ -96,20 +96,20 @@ const CreationModal = () => {
               <div className="end-date flex flex-col gap-2">
                 <h3 className="text-wordColor font-medium">End Date</h3>
                 <div className="flex gap-4">
-                  <div className="date flex items-center gap-4 pt-2 pr-4 pb-2 pl-4 div-date w-w-185 h-h-52 bg-white rounded-md border-black border-2 border-opacity-10 hover:border-black">
+                  <div className="date flex items-center pt-2 pr-4 pb-2 pl-4 div-date w-w-185 h-h-52 bg-white rounded-md border-black border-2 border-opacity-10 hover:border-black">
                     {/* <i className="fa-solid fa-calendar-days text-2xl opacity-50"></i> */}
                     <i className="fa-regular fa-calendar-days text-2xl opacity-50"></i>
                     <input
-                      className="text-center opacity-50 text-14px outline-none"
+                      className="text-center opacity-50 text-14px outline-none border-none"
                       type="date"
                       name="date"
                       id="date"
                     />
                   </div>
-                  <div className="time flex items-center gap-4 w-w-107 h-h-52 pt-2 pr-4 pb-2 pl-4 bg-white rounded-md border-black border-2 border-opacity-10 hover:border-black">
+                  <div className="time flex items-center gap-1 w-w-107 h-h-52 pt-2 pr-4 pb-2 pl-4 bg-white rounded-md border-black border-2 border-opacity-10 hover:border-black">
                     <i className="fa-regular fa-clock text-2xl opacity-50"></i>
                     <input
-                      className=" text-14px opacity-50 outline-none"
+                      className=" text-14px opacity-50 outline-none border-none"
                       type="time"
                       name="time"
                       id="time"
