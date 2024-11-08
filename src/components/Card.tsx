@@ -1,6 +1,7 @@
 import ProgressBar from "@ramonak/react-progress-bar";
 import avatar5 from "/img/avatar/Avatar 5.svg";
 import avatar6 from "/img/avatar/Avatar 6.svg";
+import React from "react";
 
 const Card = ({ value, img, color }) => {
   const image = img;
@@ -8,7 +9,7 @@ const Card = ({ value, img, color }) => {
   let mid;
   let high;
   let low;
-  const progress: number = 30;
+  const progress: number = 65;
 
   function typePerformance() {
     if (performance == "mid") {
