@@ -12,6 +12,7 @@ import Profile from "./routes/ProfilePage.tsx";
 import BlockedPage from "./routes/BlockedPage.tsx";
 import CreationModal from "./components/CreationModal.tsx";
 import Login from "./routes/Login.tsx";
+import SignUp from "./routes/SignUp.tsx";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
@@ -48,9 +49,13 @@ const router = createBrowserRouter([
     element: <BlockedPage />,
   },
   {
-    path: "login",
+    path: "/login",
     element: <Login />,
   },
+  {
+    path: "/signUp",
+    element: <SignUp />,
+  }
   // {
   //   path: "/createModal",
   //   element: <CreationModal />,
