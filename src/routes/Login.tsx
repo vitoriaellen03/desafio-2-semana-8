@@ -2,9 +2,13 @@ import logo from "/img/loginPhoto.png";
 import googleIcon from "/img/googleIcon.png";
 import facebookIcon from "/img/faceIcon.png";
 import { Link } from "react-router-dom";
-import { SignInButton } from "@clerk/clerk-react";
+
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+
+
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+
 
 const Login = () => {
 
@@ -92,6 +96,14 @@ const Login = () => {
             </div>
           </div>
         </section>
+        <div>
+      <SignedOut>
+        <SignInButton />
+      </SignedOut>
+      <SignedIn>
+        <UserButton />
+      </SignedIn>
+    </div>
       </div>
     </main>
     <Footer />

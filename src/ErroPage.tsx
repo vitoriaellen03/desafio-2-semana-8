@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import postit from "/img/postit.png";
 
 const ErroPage = () => {
+  const navigate = useNavigate()
   return (
     <>
     <Header />
@@ -18,7 +19,7 @@ const ErroPage = () => {
               Oops! Nothing to see here, just a lost kanban task.
             </p>
             <div className="text-right text-decoration-line: underline pt-2">
-              <a href="/">Go back to home</a>
+              <button onClick={() => navigate("/")}>Go back to home</button>
             </div>
           </div>
         </section>
