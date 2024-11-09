@@ -1,4 +1,4 @@
-import React from "react";
+import { useUser } from "@clerk/clerk-react"
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import user1 from "/img/userImgProfile.png";
@@ -6,6 +6,8 @@ import user2 from "/img/user2.png";
 import db from "../data/db.json";
 
 const Profile = () => {
+  const { user } = useUser();
+
   return (
     <div>
       <Header />
@@ -13,7 +15,7 @@ const Profile = () => {
         <div className="flex flex-col w-full md:w-[45%] pr-8">
           <div className="flex items-center mb-6">
             <div>
-              <img src={user1} alt="Profile picture of the user" className="w-auto rounded-6 mb-4" />
+              <img src={user?.hasImage ? user.imageUrl : user1} alt="Profile picture of the user" className="w-auto rounded-6 mb-4" />
             </div>
             <div className="ml-3">
               <h1 className="text-4xl font-medium">{db.users[0].firstName} {db.users[0].lastName}</h1>
@@ -34,11 +36,11 @@ const Profile = () => {
               <h3 className="font-semibold text-gray-500">E-mail</h3>
               <p className="text-gray-500">{db.users[0].email}</p>
               <h3 className="font-semibold text-gray-500">Twitter/X</h3>
-              <p className="text-gray-500">{db.users[0].socialNetwork[0]}</p>
+              <p className="text-gray-500">{db.users[0].socialNetworks.twitter}</p>
               <h3 className="font-semibold text-gray-500">Instagram</h3>
-              <p className="text-gray-500">{db.users[0].socialNetwork[1]}</p>
+              <p className="text-gray-500">{db.users[0].socialNetworks.instagram}</p>
               <h3 className="font-semibold text-gray-500">LinkedIn</h3>
-              <p className="text-gray-500">{db.users[0].socialNetwork[2]}</p>
+              <p className="text-gray-500">{db.users[0].socialNetworks.linkedin}</p>
             </div>
           </div>
 
@@ -48,9 +50,9 @@ const Profile = () => {
               <h3 className="font-semibold text-gray-500">User ID</h3>
               <p className="text-gray-500">{db.users[0].id}</p>
               <h3 className="font-semibold text-gray-500">Creation date</h3>
-              <p className="text-gray-500">{db.users[0].creationDate}</p>
+              <p className="text-gray-500">{db.users[0].createdAt}</p>
               <h3 className="font-semibold text-gray-500">Title</h3>
-              <p className="text-gray-500">{db.users[0].role}</p>
+              <p className="text-gray-500">{db.users[0].jobPosition}</p>
             </div>
           </div>
         </div>

@@ -4,7 +4,13 @@
       "id": "1",
       "priority": "alta",
       "title": "Estudar Hooks",
-      "members": ["Alessandro", "Vitória", "Eduardo", "Ivana", "Maria"],
+      "members": [
+        "Alessandro",
+        "Vitória",
+        "Eduardo",
+        "Ivana",
+        "Maria"
+      ],
       "numberOfComments": 4,
       "numberOfTasksCompleted": 5,
       "progress": 50,
@@ -16,15 +22,19 @@
   ],
   "users": [
     {
-      "id": "1",
-      "firstName": "Alessandro",
-      "lastName": "Vieira Alves",
-      "user": "@theAlessandro",
-      "creationDate": "05/11/2024",
-      "email": "reactTypescript@gmail.com",
-      "password": "1343424@",
-      "role": "Desenvolvedor Front end",
-      "socialNetwork": ["@aless", "@ale_92", "alessandrovieira"]
+      "firstName": "Doida",
+      "lastName": "Com isso aqui",
+      "email": "sim@sim.com",
+      "password": "123456",
+      "user": "@maria",
+      "jobPosition": "Front-end developer",
+      "createdAt": "2024-11-05T15:00:00.000Z",
+      "socialNetworks": {
+        "twitter": "ntenhon",
+        "instagram": "@nadinha",
+        "linkedin": "uiuiui"
+      },
+      "id": "1"
     }
   ]
 }

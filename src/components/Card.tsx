@@ -1,7 +1,6 @@
 import ProgressBar from "@ramonak/react-progress-bar";
 import avatar5 from "/img/avatar/Avatar 5.svg";
 import avatar6 from "/img/avatar/Avatar 6.svg";
-import React from "react";
 
 const Card = ({ value, img, color }) => {
   const image = img;
