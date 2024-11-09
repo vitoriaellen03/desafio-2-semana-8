@@ -4,7 +4,13 @@
       "id": "1",
       "priority": "alta",
       "title": "Estudar Hooks",
-      "members": ["Alessandro", "Vitória", "Eduardo", "Ivana", "Maria"],
+      "members": [
+        "Alessandro",
+        "Vitória",
+        "Eduardo",
+        "Ivana",
+        "Maria"
+      ],
       "numberOfComments": 4,
       "numberOfTasksCompleted": 5,
       "progress": 50,
@@ -24,7 +30,11 @@
       "email": "reactTypescript@gmail.com",
       "password": "1343424@",
       "role": "Desenvolvedor Front end",
-      "socialNetwork": ["@aless", "@ale_92", "alessandrovieira"]
+      "socialNetwork": [
+        "@aless",
+        "@ale_92",
+        "alessandrovieira"
+      ]
     }
   ]
 }
