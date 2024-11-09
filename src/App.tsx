@@ -37,7 +37,7 @@ function App() {
                             tabs on your projects - whether you’re working solo or a with a team</p>
                         <button className="btn" data-type="learn-more">Learn More</button>
                     </div>
-                    <div className="columns">
+                    <div className="columns scroll">
                         <div className="column">
                             <div className="card-manager">
                                 <img src="/img/mn-1.png" alt="imagem de fichario" />
@@ -79,25 +79,25 @@ function App() {
                         </div>
                         <div className="columns">
                             <div className="column aling-center">
-                                <i className="image-i-i"><img src="/img/tool-i-i.png" alt="image tool-i-i" /></i>
+                                <i className="image-i-i"><img src="/img/i-i-tool.svg" alt="image tool-i-i" /></i>
                                 <h3 className="subtitle">Task Scheduler</h3>
                                 <p className="text">Plan and schedule tasks</p>
                             </div>
 
                             <div className="column aling-center">
-                                <i className="image-i-i"><img src="/img/clock-i-i.png" alt="image clock-i-i" /></i>
+                                <i className="image-i-i"><img src="/img/i-i-clock.svg" alt="image clock-i-i" /></i>
                                 <h3 className="subtitle">Deadline Tracker</h3>
                                 <p className="text">Keep back of project deadlines</p>
                             </div>
 
                             <div className="column aling-center">
-                                <i className="image-i-i"><img src="/img/menseger-i-i.png" alt="image menseger-i-i" /></i>
+                                <i className="image-i-i"><img src="/img/i-i-mens.svg" alt="image menseger-i-i" /></i>
                                 <h3 className="subtitle">Comunication Hub</h3>
                                 <p className="text">Centralized team communication</p>
                             </div>
 
                             <div className="column aling-center">
-                                <i className="image-i-i"><img src="/img/table-i-i.png" alt="image table-i-i" /></i>
+                                <i className="image-i-i"><img src="/img/i-i-table.svg" alt="image table-i-i" /></i>
                                 <h3 className="subtitle">Progress Report</h3>
                                 <p className="text">Track projet progress</p>
                             </div>
