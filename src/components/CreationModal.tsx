@@ -3,7 +3,7 @@ import { Outlet, Link } from "react-router-dom";
 
 const CreationModal = () => {
   return (
-    <div className="container-creation-modal flex  items-center h-full w-full p-24 bg-black bg-opacity-60 absolute">
+    <div className="container-creation-modal flex  items-center h-full w-full p-24 bg-black bg-opacity-90 absolute bottom-1">
       {/* create modal */}
       <div className="create-modal flex flex-col gap-3 h-h-584 w-w-1001 pt-4 pr-11 pb-4 pl-11 bg-F6F6F6  rounded-2xl">
         <div className="container-title-exit flex justify-between w-full text-2xl font-semibold">

@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -8,17 +9,27 @@ import avatar6 from "/img/avatar/Avatar 6.svg";
 import avatar7 from "/img/avatar/Rectangle 10.svg";
 
 const Kanban = () => {
+  // Values ​​for Bhutan to fix
+  const [classeName, setNameClasse] = useState("");
+  const [btnDisplay, setBtnDisplay] = useState("btn-none");
+
   return (
-    <div className="lg:h-screen w-full relative">
+    <div className="h-full w-full">
       {/* <Header /> */}
       <Header />
-      <main className="lg:flex items-center justify-center h-full w-full bg-white">
-        <div className="container-tasks lg:flex items-center justify-center gap-5 h-h-587 w-w-1051  bg-opacity-25 rounded-4xl">
+      <main className="flex items-center justify-center h-full w-full pt-4 pr-5 pb-4 pl-5 bg-white">
+        <div
+          className={
+            classeName == "project-none"
+              ? "container-tasks flex items-center justify-center gap-5 h-h-587 w-full bg-opacity-50 rounded-4xl relative"
+              : "container-tasks flex items-center justify-center gap-5 h-h-587 w-w-1051  bg-opacity-25 rounded-4xl"
+          }
+        >
           {/* to-do */}
-          <div className="container-to-do lg:flex flex-col items-center gap-4 pb-2 h-h-553 w-w-310  bg-1E293B bg-opacity-10 rounded-4xl">
-            <div className="div-add-quantity lg:flex justify-between items-center pl-3 pr-3 relative bottom-2 h-11 w-full bg-D3D1F8 rounded-4xl">
-              <div className="lg:flex gap-2 items-center">
-                <p className=" lg:flex justify-center items-center h-8 w-10 bg-4F46E5 rounded-4xl text-white">
+          <div className="container-to-do flex flex-col items-center gap-4 pb-2 h-h-553 w-w-310  bg-1E293B bg-opacity-10 rounded-4xl">
+            <div className="div-add-quantity flex justify-between items-center pl-3 pr-3 relative bottom-2 h-11 w-full bg-D3D1F8 rounded-4xl">
+              <div className="flex gap-2 items-center">
+                <p className=" flex justify-center items-center h-8 w-10 bg-4F46E5 rounded-4xl text-white">
                   25
                 </p>
                 <h2 className="text-4F46E5 font-bold text-base">To do</h2>
@@ -29,7 +40,7 @@ const Kanban = () => {
                 </Link>
               </button>
             </div>
-            <div className="div-scroll-to-do lg:flex flex-col gap-5 h-full pr-1  overflow-y-auto ">
+            <div className="div-scroll-to-do flex flex-col gap-5 h-full pr-1  overflow-y-auto ">
               {/* Card  */}
               <Card value={"mid"} color={"#4F46E5"} />
               <Card value={"low"} color={"#4F46E5"} />
@@ -37,10 +48,10 @@ const Kanban = () => {
             </div>
           </div>
           {/* in-progress */}
-          <div className="container-in-progress flex flex-col items-center gap-4 pb-2  lg:h-h-553 w-w-310 bg-1E293B bg-opacity-10 rounded-4xl">
-            <div className=" lg:flex justify-between items-center relative bottom-2 pl-3 pr-3 h-11 w-full bg-FCE7C2 rounded-4xl">
+          <div className="container-in-progress flex flex-col items-center gap-4 pb-2 h-h-553 w-w-310 bg-1E293B bg-opacity-10 rounded-4xl">
+            <div className=" flex justify-between items-center relative bottom-2 pl-3 pr-3 h-11 w-full bg-FCE7C2 rounded-4xl">
               <div className="flex gap-2 items-center">
-                <p className=" lg:flex justify-center items-center h-8 w-10 bg-F59E0B rounded-4xl text-white">
+                <p className=" flex justify-center items-center h-8 w-10 bg-F59E0B rounded-4xl text-white">
                   8
                 </p>
                 <h2 className="text-F59E0B font-bold text-base">In progress</h2>
@@ -51,7 +62,7 @@ const Kanban = () => {
                 </Link>
               </button>
             </div>
-            <div className="div-scroll-in-progress lg:flex flex-col gap-5 h-full pr-1  overflow-y-auto ">
+            <div className="div-scroll-in-progress flex flex-col gap-5 h-full pr-1  overflow-y-auto ">
               {/* Card  */}
               <Card value={"high"} color={"#F59E0B"} />
               <Card value={"high"} color={"#F59E0B"} />
@@ -59,10 +70,10 @@ const Kanban = () => {
             </div>
           </div>
           {/* done */}
-          <div className="container-done flex flex-col items-center gap-4 pb-2 lg:h-h-553 w-w-310 bg-1E293B  bg-opacity-10 rounded-4xl">
-            <div className=" lg:flex justify-between items-center relative bottom-2 pl-3 pr-3 h-11 w-full bg-C8F0D7  rounded-4xl">
+          <div className="container-done flex flex-col items-center gap-4 pb-2 h-h-553 w-w-310 bg-1E293B  bg-opacity-10 rounded-4xl">
+            <div className=" flex justify-between items-center relative bottom-2 pl-3 pr-3 h-11 w-full bg-C8F0D7  rounded-4xl">
               <div className="flex gap-2 items-center">
-                <p className=" lg:flex justify-center items-center h-8 w-10 bg-22C55E rounded-4xl text-white">
+                <p className=" flex justify-center items-center h-8 w-10 bg-22C55E rounded-4xl text-white">
                   2
                 </p>
                 <h2 className="text-22C55E font-bold text-base">Done</h2>
@@ -73,18 +84,46 @@ const Kanban = () => {
                 </Link>
               </button>
             </div>
-            <div className="div-scroll-done lg:flex flex-col gap-5 h-full pr-1  overflow-y-auto ">
+            <div className="div-scroll-done flex flex-col gap-5 h-full pr-1  overflow-y-auto ">
               {/* Card  */}
               <Card value={"low"} img={frame4} color={"#22C55E"} />
               <Card value={"low"} img={""} color={"#22C55E"} />
             </div>
           </div>
+          {/* button to fix */}
+          <button
+            onClick={() => {
+              setNameClasse("in-this-project");
+              setBtnDisplay("btn-none");
+            }}
+            className={
+              btnDisplay == "btn-none"
+                ? "btn-none hidden"
+                : "w-11 h-11 bg-475569 rounded-full absolute top-0 right-0"
+            }
+          >
+            <i className="fa-solid fa-thumbtack text-white"></i>
+          </button>
         </div>
+        {/*in-this-project */}
 
-        <div className="in-this-project lg: flex flex-col justify-center items-center h-h-538 w-w-18.63 pt-7 pl-5 pb-7 pr-5 bg-6C7D96  rounded-4xl ml-10">
+        <div
+          className={
+            classeName == "project-none"
+              ? "project-none hidden"
+              : "in-this-project flex flex-col justify-center items-center h-h-538 w-w-18.63 pt-7 pl-5 pb-7 pr-5 bg-6C7D96  rounded-4xl ml-10"
+          }
+        >
           <div className="div-project-button-fixed flex justify-between w-full mb-3">
             <h3 className="text-white text-base font-bold">In this project</h3>
-            <button>
+            {/* Button to unpin */}
+            <button
+              onClick={() => {
+                setNameClasse("project-none");
+                setBtnDisplay("btn-dyplay");
+              }}
+              className="button-fixed"
+            >
               <i className="fa-solid fa-thumbtack text-white"></i>
             </button>
           </div>
@@ -206,9 +245,10 @@ const Kanban = () => {
             </div>
           </div>
         </div>
-        <Outlet />
+        {/* the end in-this-project */}
       </main>
       <Footer />
+      <Outlet />
     </div>
   );
 };
