@@ -1,8 +1,8 @@
-import React from "react";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ClerkProvider } from '@clerk/clerk-react'
+import { SignedIn } from "@clerk/clerk-react";
 import "./index.css";
 import App from "./App.tsx";
 import Kanban from "./routes/Kanban.tsx";
@@ -28,21 +28,29 @@ const router = createBrowserRouter([
   },
   {
     path: "/kanban",
-    element: <Kanban />,
+    element: <SignedIn>
+                <Kanban />
+             </SignedIn>,
     children: [
       {
         path: "/kanban/createModal",
-        element: <CreationModal />,
+        element: <SignedIn>
+        <CreationModal />
+        </SignedIn>
       },
     ],
   },
   {
     path: "/settings",
-    element: <User />,
+    element: <SignedIn>
+                <User />
+             </SignedIn>
   },
   {
     path: "/profile",
-    element: <Profile />,
+    element: <SignedIn>
+              <Profile />
+             </SignedIn>
   },
   {
     path: "/BlockedPage",
