@@ -35,6 +35,21 @@
         "@ale_92",
         "alessandrovieira"
       ]
+    },
+    {
+      "id": "1",
+      "firstName": "Doida",
+      "lastName": "Com isso aqui",
+      "email": "sim@sim.com",
+      "password": "123456",
+      "user": "@maria",
+      "jobPosition": "Front-end developer",
+      "createdAt": "2024-11-05T15:00:00.000Z",
+      "socialNetworks": {
+        "twitter": "ntenhon",
+        "instagram": "@nadinha",
+        "linkedin": "uiuiui"
+      }
     }
   ]
 }
