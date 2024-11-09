@@ -15,7 +15,7 @@ const Profile = () => {
         <div className="flex flex-col w-full md:w-[45%] pr-8">
           <div className="flex items-center mb-6">
             <div>
-              <img src={user?.hasImage ? user.imageUrl : user1} alt="Profile picture of the user" className="w-auto rounded-6 mb-4" />
+              <img src={user?.imageUrl || user1} alt="Profile picture of the user" className="w-48 h-42 rounded-lg mb-4" />
             </div>
             <div className="ml-3">
               <h1 className="text-4xl font-medium">{db.users[0].firstName} {db.users[0].lastName}</h1>
