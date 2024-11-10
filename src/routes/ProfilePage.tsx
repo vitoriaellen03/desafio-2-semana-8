@@ -8,6 +8,10 @@ import db from "../data/db.json";
 const Profile = () => {
   const { user } = useUser();
 
+  const userData = db.users.find((dbUser) => dbUser.email === user?.primaryEmailAddress?.emailAddress);
+  const usermail = userData?.jobPosition;
+  console.log(usermail);
+
   return (
     <div>
       <Header />
@@ -15,18 +19,18 @@ const Profile = () => {
         <div className="flex flex-col w-full md:w-[45%] pr-8">
           <div className="flex items-center mb-6">
             <div>
-              <img src={user?.imageUrl || user1} alt="Profile picture of the user" className="w-48 h-42 rounded-lg mb-4" />
+              <img src={user?.hasImage ? user.imageUrl : user1} alt="Profile picture of the user" className="w-48 h-46 rounded-6 mb-4" />
             </div>
             <div className="ml-3">
-              <h1 className="text-4xl font-medium">{db.users[0].firstName} {db.users[0].lastName}</h1>
-              <p className="text-gray-500">{db.users[0].user}</p>
+              <h1 className="text-4xl font-medium">{userData?.firstName} {userData?.lastName}</h1>
+              <p className="text-gray-500">{userData?.user}</p>
             </div>
           </div>
 
           <div className="mb-8 border-b border-b-gray-300">
             <h1 className="text-3xl font-medium">Profile data</h1>
             <p className="text-base font-normal text-gray-500 mb-8">
-              {db.users[0].firstName} {db.users[0].lastName}'s information
+              {userData?.firstName} {userData?.lastName}'s information
             </p>
           </div>
 
@@ -34,13 +38,13 @@ const Profile = () => {
             <h1 className="text-2xl font-medium">Contact</h1>
             <div className="grid grid-cols-2 gap-x-1 gap-y-2 mt-2">
               <h3 className="font-semibold text-gray-500">E-mail</h3>
-              <p className="text-gray-500">{db.users[0].email}</p>
+              <p className="text-gray-500">{userData?.email}</p>
               <h3 className="font-semibold text-gray-500">Twitter/X</h3>
-              <p className="text-gray-500">{db.users[0].socialNetworks.twitter}</p>
+              <p className="text-gray-500">{userData?.socialNetworks?.twitter}</p>
               <h3 className="font-semibold text-gray-500">Instagram</h3>
-              <p className="text-gray-500">{db.users[0].socialNetworks.instagram}</p>
+              <p className="text-gray-500">{userData?.socialNetworks?.instagram}</p>
               <h3 className="font-semibold text-gray-500">LinkedIn</h3>
-              <p className="text-gray-500">{db.users[0].socialNetworks.linkedin}</p>
+              <p className="text-gray-500">{userData?.socialNetworks?.linkedin}</p>
             </div>
           </div>
 
@@ -48,11 +52,11 @@ const Profile = () => {
             <h1 className="text-2xl font-medium">Details</h1>
             <div className="grid grid-cols-2 gap-x-1 gap-y-2 mt-2">
               <h3 className="font-semibold text-gray-500">User ID</h3>
-              <p className="text-gray-500">{db.users[0].id}</p>
+              <p className="text-gray-500">{userData?.id}</p>
               <h3 className="font-semibold text-gray-500">Creation date</h3>
-              <p className="text-gray-500">{db.users[0].createdAt}</p>
+              <p className="text-gray-500">{userData?.createdAt}</p>
               <h3 className="font-semibold text-gray-500">Title</h3>
-              <p className="text-gray-500">{db.users[0].jobPosition}</p>
+              <p className="text-gray-500">{userData?.jobPosition}</p>
             </div>
           </div>
         </div>
