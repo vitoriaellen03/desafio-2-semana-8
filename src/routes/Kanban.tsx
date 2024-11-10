@@ -1,4 +1,7 @@
 import React from "react";
+import { useEffect, useState } from "react";
+import { CardFetch } from "../hooks/CardService";
+import { Task } from "../types/Task";
 import { Outlet, Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -8,6 +11,36 @@ import avatar6 from "/img/avatar/Avatar 6.svg";
 import avatar7 from "/img/avatar/Rectangle 10.svg";
 
 const Kanban = () => {
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  useEffect(() => {
+    const loadFetch = async () => {
+      try {
+        const data = await CardFetch();
+        setTasks(data);
+      } catch (err) {
+        throw new Error("Task não encontrada" + err);
+      }
+    };
+
+    loadFetch();
+  });
+  // useEffect(() => {
+  //   const dbJson = async () => {
+  //     try {
+  //       const response = await fetch("http://localhost:3001/tasks");
+  //       if (!response.ok) {
+  //         throw new Error(`Erro na requisição: ${response.status}`);
+  //       }
+
+  //       const tasks = await response.json();
+  //       setData(tasks);
+  //     } catch {}
+  //   };
+
+  //   dbJson();
+  // }, [data]);
+
   return (
     <div className="lg:h-screen w-full relative">
       {/* <Header /> */}
@@ -34,9 +67,11 @@ const Kanban = () => {
                 </div>
                 <div className=" column div-scroll-to-do lg:flex flex-col gap-5 h-full pr-1  overflow-y-auto ">
                   {/* Card  */}
-                  <Card value={"mid"} color={"#4F46E5"} />
-                  <Card value={"low"} color={"#4F46E5"} />
-                  <Card value={"mid"} color={"#4F46E5"} />
+                  {tasks.map((task, i) => (
+                    <Card color={"#4F46E5"} id={i} />
+                  ))}
+                  {/* <Card value={"low"} color={"#4F46E5"} />
+                  <Card value={"mid"} color={"#4F46E5"} /> */}
                 </div>
               </div>
               {/* in-progress */}
@@ -46,7 +81,9 @@ const Kanban = () => {
                     <p className=" lg:flex justify-center items-center h-8 w-10 bg-F59E0B rounded-4xl text-white">
                       8
                     </p>
-                    <h2 className="text-F59E0B font-bold text-base">In progress</h2>
+                    <h2 className="text-F59E0B font-bold text-base">
+                      In progress
+                    </h2>
                   </div>
                   <button>
                     <Link to={"/kanban/createModal"}>
@@ -56,9 +93,9 @@ const Kanban = () => {
                 </div>
                 <div className="div-scroll-in-progress lg:flex flex-col gap-5 h-full pr-1  overflow-y-auto ">
                   {/* Card  */}
+                  {/* <Card value={"high"} color={"#F59E0B"} />
                   <Card value={"high"} color={"#F59E0B"} />
-                  <Card value={"high"} color={"#F59E0B"} />
-                  <Card value={"low"} color={"#F59E0B"} />
+                  <Card value={"low"} color={"#F59E0B"} /> */}
                 </div>
               </div>
               {/* done */}
@@ -78,8 +115,8 @@ const Kanban = () => {
                 </div>
                 <div className="div-scroll-done lg:flex flex-col gap-5 h-full pr-1  overflow-y-auto ">
                   {/* Card  */}
-                  <Card value={"low"} img={frame4} color={"#22C55E"} />
-                  <Card value={"low"} img={""} color={"#22C55E"} />
+                  {/* <Card value={"low"} img={frame4} color={"#22C55E"} />
+                  <Card value={"low"} img={""} color={"#22C55E"} /> */}
                 </div>
               </div>
             </div>
@@ -87,7 +124,9 @@ const Kanban = () => {
 
           <div className="column in-this-project lg: flex flex-col justify-center items-center h-h-538 w-w-18.63 pt-7 pl-5 pb-7 pr-5 bg-6C7D96  rounded-4xl ml-10">
             <div className="div-project-button-fixed flex justify-between w-full mb-3">
-              <h3 className="text-white text-base font-bold">In this project</h3>
+              <h3 className="text-white text-base font-bold">
+                In this project
+              </h3>
               <button>
                 <i className="fa-solid fa-thumbtack text-white"></i>
               </button>
@@ -166,7 +205,9 @@ const Kanban = () => {
                     <h3 className="text-xs text-color-btn font-bold">
                       Most active
                     </h3>
-                    <p className="text-8px text-4F46E5 font-bold">last 30 days</p>
+                    <p className="text-8px text-4F46E5 font-bold">
+                      last 30 days
+                    </p>
                   </div>
 
                   <div className="div-user flex flex-col gap-1 w-full">
