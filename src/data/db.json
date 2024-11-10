@@ -50,6 +50,31 @@
         "instagram": "@nadinha",
         "linkedin": "uiuiui"
       }
+    },
+    {
+      "id": "3",
+      "firstName": "Mariazinha",
+      "lastName": "Reis",
+      "email": "marycarol.00@gmail.com",
+      "password": "123456",
+      "user": "@maria",
+      "jobPosition": "Front-end developer",
+      "createdAt": "2024-11-05T15:00:00.000Z",
+      "socialNetworks": {
+        "twitter": "nada",
+        "instagram": "@marys",
+        "linkedin": "marydev"
+      }
+    },
+    {
+      "id": "200",
+      "firstName": "Maria",
+      "lastname": "Mendes",
+      "user": "@MariaMendes",
+      "creationDate": "11/9/2024",
+      "email": "naosei@nothing.com",
+      "role": "Developer",
+      "password": "Id0ntknow!"
     }
   ]
 }

@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import userImg from "/img/userImg.png";
 import uploadImg from "/img/uploadImg.png";
 import uploadBin from "/img/uploadBin.png";
+import db from "../data/db.json";
 
 interface Preferences {
   tasks: boolean;
@@ -15,6 +16,7 @@ interface Preferences {
 
 const User = () => {
   const { user } = useUser();
+  const userInfo = db.users.find((dbUser) => dbUser.email === user?.primaryEmailAddress?.emailAddress);
   const [userData, setUserData] = useState({
     firstName: '',
     lastName: '',
@@ -92,6 +94,7 @@ const User = () => {
 
   const handleSubmit = async () => {
     setLoading(true);
+    const loggedInUserId = userInfo?.id;
     try {
       const updatedFields = {
         firstName: userData.firstName,
@@ -100,7 +103,7 @@ const User = () => {
         socialNetworks: userData.socialNetworks,
       };
   
-      const response = await fetch('http://localhost:3000/users/1', {
+      const response = await fetch(`http://localhost:3000/users/${loggedInUserId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -114,7 +117,7 @@ const User = () => {
   
       alert('User information updated successfully!');
       
-      const updatedResponse = await fetch('http://localhost:3000/users/1');
+      const updatedResponse = await fetch(`http://localhost:3000/users/${loggedInUserId}`);
       const updatedData = await updatedResponse.json();
       setUserData(updatedData);
       
@@ -270,7 +273,7 @@ const User = () => {
               id="tasks"
               checked={preferences.tasks}
               onChange={handleCheckboxChange}
-              className="w-4 h-4 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+              className="w-4 h-4 appearence-none checked:bg-[#5570F1]"
             />
             <label htmlFor="tasks-checkbox" className="text-sm font-medium text-gray-700 ml-2">New tasks</label>
           </div>
@@ -282,7 +285,7 @@ const User = () => {
               id="members"
               checked={preferences.members}
               onChange={handleCheckboxChange}
-              className="w-4 h-4 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+              className="w-4 h-4 appearence-none checked:bg-[#5570F1]"
             />
             <label htmlFor="members-checkbox" className="text-sm font-medium text-gray-700 ml-2">New team members</label>
           </div>
@@ -294,7 +297,7 @@ const User = () => {
               id="reports"
               checked={preferences.reports}
               onChange={handleCheckboxChange}
-              className="w-4 h-4 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+              className="w-4 h-4 appearence-none checked:bg-[#5570F1]"
             />
             <label htmlFor="reports-checkbox" className="text-sm font-medium text-gray-700 ml-2">Weekly reports</label>
           </div>
@@ -317,13 +320,13 @@ const User = () => {
             type="text"
             className="w-1/3 p-2 border border-gray-300 rounded-lg"
             placeholder="x.com/"
-            value={userData.socialNetworks.twitter}
+            value={userData.socialNetworks?.twitter}
             onChange={(e) => handleSocialNetworkChange(e, 'twitter')}
           />
           <input
             type="text"
             className="w-1/3 p-2 border border-gray-300 rounded-md"
-            placeholder={userData.socialNetworks.twitter}
+            placeholder={userData.socialNetworks?.twitter}
           />
         </div>
         </div>
@@ -334,13 +337,13 @@ const User = () => {
             type="text"
             className="w-1/3 p-2 border border-gray-300 rounded-lg"
             placeholder="instagram.com/"
-            value={userData.socialNetworks.instagram}
+            value={userData.socialNetworks?.instagram}
             onChange={(e) => handleSocialNetworkChange(e, 'instagram')}
           />
           <input
             type="text"
             className="w-1/3 p-2 border border-gray-300 rounded-md"
-            placeholder={userData.socialNetworks.instagram}
+            placeholder={userData.socialNetworks?.instagram}
           />
         </div>
         </div>
@@ -351,13 +354,13 @@ const User = () => {
             type="text"
             className="w-1/3 p-2 border border-gray-300 rounded-lg"
             placeholder="linkedin.com/in/"
-            value={userData.socialNetworks.linkedin}
+            value={userData.socialNetworks?.linkedin}
             onChange={(e) => handleSocialNetworkChange(e, 'linkedin')}
           />
           <input
             type="text"
             className="w-1/3 p-2 border border-gray-300 rounded-md"
-            placeholder={userData.socialNetworks.linkedin}
+            placeholder={userData.socialNetworks?.linkedin}
           />
         </div>
       </div>
@@ -366,7 +369,7 @@ const User = () => {
 
       <div className="flex flex-col items-center space-y-2 pt-16 pb-16 ml-5 mr-5 md:ml-10 md:mr-10">
         <button
-          className="bg-primary text-white w-full md:w-1/3 h-12 p-4 rounded-md flex items-center justify-center"
+          className="bg-primary text-white hover:bg-[#3B5174] w-full md:w-1/3 h-12 p-4 rounded-md flex items-center justify-center"
           onClick={handleSubmit}
           disabled={loading}
         >
