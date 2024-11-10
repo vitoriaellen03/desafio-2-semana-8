@@ -5,7 +5,13 @@ import ProgressBar from "@ramonak/react-progress-bar";
 import avatar5 from "/img/avatar/Avatar 5.svg";
 import avatar6 from "/img/avatar/Avatar 6.svg";
 
-const Card = ({ value, img, color, id }) => {
+interface PropsType {
+  img: string;
+  color: string;
+  id: number;
+}
+
+const Card: React.FC<PropsType> = ({ img, color, id }) => {
   const [task, setTaks] = useState<Task[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);

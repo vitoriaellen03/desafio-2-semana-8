@@ -3,12 +3,13 @@ export interface Task {
   id?: string;
   priority: string;
   title: string;
-  members?: [];
+  members: [];
   numberOfComments: number;
   numberOfTasksCompleted: number;
   progress: number;
   startDateTime?: string;
   endDateTime?: string;
-  estimatedTimeOfCompletion?: string;
+  estimatedTimeOfCompletion: string;
   creator?: string;
+  project?: string;
 }

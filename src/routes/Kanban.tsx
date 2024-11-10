@@ -9,6 +9,8 @@ import Card from "../components/Card";
 import frame4 from "/img/Frame (4).png";
 import avatar6 from "/img/avatar/Avatar 6.svg";
 import avatar7 from "/img/avatar/Rectangle 10.svg";
+import CardUser2 from "../components/CardUser2";
+import CardUser1 from "../components/CardUser1";
 
 const Kanban = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -68,7 +70,7 @@ const Kanban = () => {
                 <div className=" column div-scroll-to-do lg:flex flex-col gap-5 h-full pr-1  overflow-y-auto ">
                   {/* Card  */}
                   {tasks.map((task, i) => (
-                    <Card color={"#4F46E5"} id={i} />
+                    <Card color="#4F46E5" id={i} img="" />
                   ))}
                   {/* <Card value={"low"} color={"#4F46E5"} />
                   <Card value={"mid"} color={"#4F46E5"} /> */}
@@ -93,6 +95,11 @@ const Kanban = () => {
                 </div>
                 <div className="div-scroll-in-progress lg:flex flex-col gap-5 h-full pr-1  overflow-y-auto ">
                   {/* Card  */}
+
+                  {tasks.map((task, i) => (
+                    <Card color="#F59E0B" id={i} img="" />
+                  ))}
+
                   {/* <Card value={"high"} color={"#F59E0B"} />
                   <Card value={"high"} color={"#F59E0B"} />
                   <Card value={"low"} color={"#F59E0B"} /> */}
@@ -114,6 +121,9 @@ const Kanban = () => {
                   </button>
                 </div>
                 <div className="div-scroll-done lg:flex flex-col gap-5 h-full pr-1  overflow-y-auto ">
+                  {tasks.map((task, i) => (
+                    <Card color="#22C55E" id={i} img="" />
+                  ))}
                   {/* Card  */}
                   {/* <Card value={"low"} img={frame4} color={"#22C55E"} />
                   <Card value={"low"} img={""} color={"#22C55E"} /> */}
@@ -133,19 +143,11 @@ const Kanban = () => {
             </div>
             {/* container card user */}
             <div className="container-card-user flex flex-col gap-3 w-full">
-              <div className="card-user flex items-center gap-4 w-full h-14 pl-2 pt-1 pb-1 bg-F6F6F6 rounded-2xl">
-                <figure>
-                  <img className="w-11 h-11" src={avatar6} alt="img-user" />
-                </figure>
-                <div>
-                  <h2 className="text-base font-bold">John Doe</h2>
-                  <p className="text-8px text-color-btn font-bold">
-                    Project Manager
-                  </p>
-                </div>
-              </div>
+              {tasks.map((task, i) =>
+                i < 3 ? <CardUser1 img={avatar6} id={i} /> : ""
+              )}
 
-              <div className="card-user flex items-center gap-4 w-full h-14 pl-2 pt-1 pb-1 bg-F6F6F6 rounded-2xl">
+              {/* <div className="card-user flex items-center gap-4 w-full h-14 pl-2 pt-1 pb-1 bg-F6F6F6 rounded-2xl">
                 <figure>
                   <img className="w-11 h-11" src={avatar7} alt="img-user" />
                 </figure>
@@ -153,8 +155,8 @@ const Kanban = () => {
                   <h2 className="text-base font-bold">Jane Doe</h2>
                   <p className="text-8px text-color-btn font-bold">Analyst</p>
                 </div>
-              </div>
-
+              </div> */}
+              {/* 
               <div className="card-user flex items-center gap-4 w-full h-14 pl-2 pt-1 pb-1 bg-F6F6F6 rounded-2xl">
                 <figure>
                   <img className="w-11 h-11" src={avatar6} alt="img-user" />
@@ -165,7 +167,7 @@ const Kanban = () => {
                     Project Manager
                   </p>
                 </div>
-              </div>
+              </div> */}
               <p className="flex flex-row-reverse text-8px text-C7C3FFAC w-ful">
                 View all (10)
               </p>
@@ -211,7 +213,11 @@ const Kanban = () => {
                   </div>
 
                   <div className="div-user flex flex-col gap-1 w-full">
-                    <div className="card-user flex items-center gap-2 w-full h-10 pl-2 pt-1 pb-1 bg-F6F6F6 rounded-xl shadow-lg">
+                    {/* Card user */}
+                    {tasks.map((task, i) =>
+                      i < 3 ? <CardUser2 img={avatar6} id={i} /> : ""
+                    )}
+                    {/* <div className="card-user flex items-center gap-2 w-full h-10 pl-2 pt-1 pb-1 bg-F6F6F6 rounded-xl shadow-lg">
                       <figure>
                         <img className="w-7 h-7" src={avatar6} alt="img-user" />
                       </figure>
@@ -221,9 +227,9 @@ const Kanban = () => {
                           Project Manager
                         </p>
                       </div>
-                    </div>
+                    </div> */}
 
-                    <div className="card-user flex items-center gap-2 w-full h-10 pl-2 pt-1 pb-1 bg-F6F6F6 rounded-2xl shadow-lg">
+                    {/* <div className="card-user flex items-center gap-2 w-full h-10 pl-2 pt-1 pb-1 bg-F6F6F6 rounded-2xl shadow-lg">
                       <figure>
                         <img className="w-7 h-7" src={avatar6} alt="img-user" />
                       </figure>
@@ -233,9 +239,9 @@ const Kanban = () => {
                           Project Manager
                         </p>
                       </div>
-                    </div>
+                    </div> */}
 
-                    <div className="card-user flex items-center gap-2 w-full h-10 pl-2 pt-1 pb-1 bg-F6F6F6 rounded-2xl shadow-lg">
+                    {/* <div className="card-user flex items-center gap-2 w-full h-10 pl-2 pt-1 pb-1 bg-F6F6F6 rounded-2xl shadow-lg">
                       <figure>
                         <img className="w-7 h-7" src={avatar6} alt="img-user" />
                       </figure>
@@ -245,7 +251,7 @@ const Kanban = () => {
                           Project Manager
                         </p>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

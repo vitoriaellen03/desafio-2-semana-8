@@ -11,7 +11,8 @@
       "startDateTime": "05/11/2024, 12:50",
       "endDateTime": "07/12/2024, 8:30",
       "estimatedTimeOfCompletion": "32 dias",
-      "creator": "Alessandro"
+      "creator": "Alessandro",
+      "project": "e-commece"
     },
     {
       "id": "2",
@@ -24,7 +25,8 @@
       "startDateTime": "05/11/2024, 12:50",
       "endDateTime": "07/12/2024, 8:30",
       "estimatedTimeOfCompletion": "32 dias",
-      "creator": "Alessandro"
+      "creator": "Kamila",
+      "project": "Blog"
     },
     {
       "id": "3",
@@ -37,7 +39,8 @@
       "startDateTime": "05/11/2024, 12:50",
       "endDateTime": "07/12/2024, 8:30",
       "estimatedTimeOfCompletion": "32 dias",
-      "creator": "Alessandro"
+      "creator": "João",
+      "project": "kanban"
     },
     {
       "id": "4",
@@ -50,7 +53,8 @@
       "startDateTime": "05/11/2024, 12:50",
       "endDateTime": "07/12/2024, 8:30",
       "estimatedTimeOfCompletion": "32 dias",
-      "creator": "Alessandro"
+      "creator": "Alessandro",
+      "project": "Carrino"
     },
     {
       "id": "5",
@@ -63,7 +67,8 @@
       "startDateTime": "05/11/2024, 12:50",
       "endDateTime": "07/12/2024, 8:30",
       "estimatedTimeOfCompletion": "32 dias",
-      "creator": "Alessandro"
+      "creator": "Alessandro",
+      "project": "e-commece"
     }
   ],
   "users": [
