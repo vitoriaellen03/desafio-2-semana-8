@@ -36,11 +36,8 @@ const Profile = () => {
               <h3 className="font-semibold text-gray-500">E-mail</h3>
               <p className="text-gray-500">{db.users[0].email}</p>
               <h3 className="font-semibold text-gray-500">Twitter/X</h3>
-              <p className="text-gray-500">{db.users[0].socialNetworks.twitter}</p>
               <h3 className="font-semibold text-gray-500">Instagram</h3>
-              <p className="text-gray-500">{db.users[0].socialNetworks.instagram}</p>
               <h3 className="font-semibold text-gray-500">LinkedIn</h3>
-              <p className="text-gray-500">{db.users[0].socialNetworks.linkedin}</p>
             </div>
           </div>
 

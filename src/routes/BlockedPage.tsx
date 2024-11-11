@@ -7,15 +7,15 @@ const BlockedPage = () => {
   return (
     <>
     <Header />
-      <main className="flex justify-center align-center bg-white">
-        <section className="flex items-center">
-          <div>
+      <main className="sec flex-grow">
+        <section className="flex items-center columns">
+          <div className="column">
             <img className="h-439 w-455" src={locker} />
           </div>
-          <div>
-            <h1 className="text-8xl pb-4">403</h1>
+          <div className="column">
+            <h2 className="text-8xl primary">403</h2>
             <p className="text-justify text-lg">
-            Nothing to see here... yet! To see this content, you need to <a className="text-decoration: underline" href="/">log in.</a> 
+            Nothing to see here... yet! To see this content, you need to <a className="text-decoration: underline" href="/login">log in.</a> 
             </p>
           </div>
         </section>
