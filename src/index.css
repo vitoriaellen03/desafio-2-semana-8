@@ -847,3 +847,18 @@ main .text {
 }
 
 /**/
+
+.container-creation-modal {
+  position: absolute;
+  background: black;
+  top: 0;
+  padding: 90px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  left: 0;
+}
+
+.create-modal {
+  position: relative;
+}
