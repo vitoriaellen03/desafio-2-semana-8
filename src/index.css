@@ -668,12 +668,12 @@ footer p {
   }
 
   .nav-menu {
+    @apply bg-primary;
     display: flex;
     flex-direction: column;
     position: absolute;
     right: 0;
     top: 80px;
-    background: #331436;
     padding: 20px;
     align-items: flex-start !important;
     z-index: 1000;
@@ -778,7 +778,7 @@ main .text {
   }
 
   .home-m {
-    height: auto;
+    height: auto !important;
   }
 }
 
