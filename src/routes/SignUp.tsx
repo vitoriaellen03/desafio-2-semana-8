@@ -12,112 +12,121 @@ const Login = () => {
 
   return (
     <>
-    <Header />
-    <div className="text-sm relative md:text-base lg:flex lg:flex-row-reverse lg:gap-20 lg:static xl:gap-44">
-      <img
-        src={logo}
-        alt=""
-        className="object-cover w-full h-800 md:h-1000 relative z-0 opacity-30 lg:w-400 xl:w-625 lg:h-auto lg:opacity-100 lg:static"
-      />
-      <div className="signSection pt-2 pb-2">
-        <section className="text-center md:text-start md:ml-16 md:self-start lg:ml-0">
-          <h1 className="font-bold mb-6 text-base md:text-5xl">
-            Sign up Information
-          </h1>
-          <p>
-            Already have an account? <Link to="/Login" className="text-blue-600 font-bold">Log in.</Link>
-          </p>
-        </section>
-        <form className="flex flex-col gap-5">
-          <div className="md:flex flex-col md:flex-row w-60">
-            <div className="input">
-              <label>First name</label>
-              <input
-                type="text"
-                id="name"
-                placeholder="Enter your first name"
-                className="h-9 w-80 md:w-251 lg:w-48 xl:w-251 pl-2 border rounded-lg border-opacity-10 border-black"
-                onChange={validateName}
-              />
-              <span className="hidden" id="nameError">
-                The name must be bigger than 2 characters.
-              </span>
-            </div>
-            <div className=" md:flex flex-col md:flex-row w-60 mt-5 md:mt-0 md:ml-5">
-              <div className="input">
-                <label>Last name</label>
-                <input
-                  type="text"
-                  id="lastname"
-                  placeholder="Enter your last name"
-                  className="h-9 w-80 md:w-251 lg:w-48 xl:w-251 pl-2 border rounded-lg border-opacity-10 border-black"
-                  onChange={validateLast}
-                />
-                <span className="hidden" id="lastError">
-                The last name must be bigger than 2 characters.
-              </span>
+      <Header />
+      <main className="flex-grow text-sm relative md:text-base flex lg:gap-20 lg:static xl:gap-44" id="signup">
+        <section className="flex flex-col w-full lg:flex-row">
+          {/* Inverte a ordem da imagem de fundo e do formulário */}
+          <div className="signSection column flex-col flex-grow">
+            <div className="sec gap-min">
+              <div className="group gap-min">
+                <h2 className="ttitle">Sign Up Information</h2>
+                <div className="group">
+                  <p>Already have an account?</p>
+                  <span>
+                    Let's take you to{" "}
+                    <Link to="/Login" className="text-blue-600 font-bold">log in</Link>
+                  </span>
+                </div>
               </div>
-            </div>
-          </div>
-          <div className="inputs">
-            <label>Email</label>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              id="email"
-              className="h-9 w-80 md:w-520 lg:w-400 xl:w-520 pl-2 border rounded-lg border-opacity-10 border-black"
-              onChange={validateEmail}
-            />
-          </div>
-          <div className="inputs">
-            <label>Job position</label>
-            <input
-              type="text"
-              id="jobPosition"
-              placeholder="Enter your job position (example: Project Manager)"
-              onChange={validateJob}
-              className="h-9 w-80 md:w-520 lg:w-400 xl:w-520 pl-2 border rounded-lg border-opacity-10 border-black"
-            />
-            <span className="hidden" id="jobError">
-              The job position must have at least 5 characters, and no numbers.
-            </span>
-          </div>
-          <div className="inputs">
-            <label>Password</label>
-            <input
-              type="password"
-              placeholder="Enter your password"
-              id="password"
-              className="h-9 w-80 md:w-520 lg:w-400 xl:w-520 pl-2 border rounded-lg border-opacity-10 border-black"
-              onChange={validatePassword}
-            />
-            <span className="hidden" id="spanError">
-              The password must be bigger than 8 characters, contain at least
-              one capital letter, one number and special characters
-            </span>
-          </div>
-          <button type="submit" onClick={(e) => {e.preventDefault(); signUp()}} className="buttonDark self-center mt-6">
-            Create an account
-          </button>
-        </form>
-          <div className="flex flex-col gap-2 self-center text-center">
-            <p>or sign up with...</p>
-            <div className="flex gap-3">
-            <SignInButton forceRedirectUrl="/kanban">
-                <button className="buttonIcons">
-                  <img src={facebookIcon} alt="Facebook icon" />
+
+              <form action="">
+                {/* Campos adicionais do formulário de Sign Up */}
+                <div className="group gap-min flex column">
+                  <div className="group columns">
+                    div.column
+                    <label>First Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      placeholder="Enter your first name"
+                      className="h-9 w-full pl-2 border rounded-lg border-opacity-10 border-black"
+                      onChange={validateName}
+                    />
+                    <span className="hidden" id="nameError">
+                      The name must be bigger than 2 characters.
+                    </span>
+                    <label>Last Name</label>
+                    <input
+                      type="text"
+                      id="lastname"
+                      placeholder="Enter your last name"
+                      className="h-9 w-full pl-2 border rounded-lg border-opacity-10 border-black"
+                      onChange={validateLast}
+                    />
+                    <span className="hidden" id="lastError">
+                      The last name must be bigger than 2 characters.
+                    </span>
+                  </div>
+                </div>
+                <div className="group gap-min flex column">
+                  <label>Job Position</label>
+                  <input
+                    type="text"
+                    id="jobPosition"
+                    placeholder="Enter your job position (e.g., Project Manager)"
+                    onChange={validateJob}
+                    className="h-9 w-full pl-2 border rounded-lg border-opacity-10 border-black"
+                  />
+                  <span className="hidden" id="jobError">
+                    The job position must have at least 5 characters, and no numbers.
+                  </span>
+                </div>
+                <div className="group">
+                  <label>Email</label>
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    id="email"
+                    onChange={validateEmail}
+                    className="h-9 w-full pl-2 border rounded-lg border-opacity-10 border-black"
+                  />
+                </div>
+                <div className="group">
+                  <label>Password</label>
+                  <input
+                    type="password"
+                    placeholder="Enter your password"
+                    id="password"
+                    onChange={validatePassword}
+                    className="h-9 w-full pl-2 border rounded-lg border-opacity-10 border-black"
+                  />
+                  <span className="hidden" id="spanError">
+                    The password must be bigger than 8 characters, contain at least one capital letter, one number, and special characters.
+                  </span>
+                </div>
+                <button type="submit" onClick={(e) => { e.preventDefault(); signUp() }} className="btn">
+                  Create an account
                 </button>
-                </SignInButton>
-                <SignInButton forceRedirectUrl="/kanban">
-                  <button className="buttonIcons">
-                    <img src={googleIcon} alt="Google icon" />
-                  </button>
-                </SignInButton>
+                <div className="flex flex-col gap-2 self-center text-center mt-4">
+                  <p>or sign up with...</p>
+                  <div className="flex gap-3">
+                    <SignInButton forceRedirectUrl="/kanban">
+                      <button className="buttonIcons">
+                        <img src={facebookIcon} alt="Facebook icon" />
+                      </button>
+                    </SignInButton>
+                    <SignInButton forceRedirectUrl="/kanban">
+                      <button className="buttonIcons">
+                        <img src={googleIcon} alt="Google icon" />
+                      </button>
+                    </SignInButton>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
-      </div>
-    </div>
-    <Footer />
+          {/* Imagem de fundo à direita para Sign Up */}
+          <div className="column-image column w-full mb-0 lg:w-1/2 overflow-hidden">
+            <img
+              src={logo}
+              alt=""
+              className="object-cover w-full h-full opacity-30 lg:opacity-100"
+            />
+          </div>
+        </section>
+      </main>
+
+      <Footer />
     </>
   );
 };
