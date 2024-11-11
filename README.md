@@ -107,6 +107,6 @@ Instale as dependências com: npm install
 
 Para iniciar o servidor local e testar a aplicação, execute: npm run dev
 
-<h4>8.Acesse a aplicação</h4>
+<h4>8.Acesse a aplicação:</h4>
 
 Abra o navegador e acesse http://localhost:3000 (ou o endereço especificado no terminal).
