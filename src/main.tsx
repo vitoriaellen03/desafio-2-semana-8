@@ -1,8 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { ClerkProvider } from '@clerk/clerk-react'
-import { SignedIn } from "@clerk/clerk-react";
+import { ClerkProvider } from "@clerk/clerk-react";
 import "./index.css";
 import App from "./App.tsx";
 import Kanban from "./routes/Kanban.tsx";
@@ -17,7 +16,7 @@ import SignUp from "./routes/SignUp.tsx";
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 if (!PUBLISHABLE_KEY) {
-  throw new Error('Add your Clerk publishable key to the .env.local file')
+  throw new Error("Add your Clerk publishable key to the .env.local file");
 }
 
 const router = createBrowserRouter([
@@ -28,29 +27,21 @@ const router = createBrowserRouter([
   },
   {
     path: "/kanban",
-    element: <SignedIn>
-                <Kanban />
-             </SignedIn>,
+    element: <Kanban />,
     children: [
       {
         path: "/kanban/createModal",
-        element: <SignedIn>
-        <CreationModal />
-        </SignedIn>
+        element: <CreationModal />,
       },
     ],
   },
   {
     path: "/settings",
-    element: <SignedIn>
-                <User />
-             </SignedIn>
+    element: <User />,
   },
   {
     path: "/profile",
-    element: <SignedIn>
-              <Profile />
-             </SignedIn>
+    element: <Profile />,
   },
   {
     path: "/BlockedPage",
@@ -63,7 +54,7 @@ const router = createBrowserRouter([
   {
     path: "/signUp",
     element: <SignUp />,
-  }
+  },
   // {
   //   path: "/createModal",
   //   element: <CreationModal />,

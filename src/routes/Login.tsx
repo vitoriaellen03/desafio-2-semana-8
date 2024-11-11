@@ -61,7 +61,7 @@ const Login = () => {
                     <span className="hidden" id="spanError">
                       The password must be bigger than 8 characters, contain at least one capital letter, one number and special characters
                     </span></div>
-                  <button className="btn" data-type="login" onClick={() => window.location.href = 'kanban'} >Login</button>
+                  <button className="btn" data-type="login" onClick={validateUser} >Login</button>
                   <div className="flex flex-col gap-2 self-center text-center">
                     <p>or sign in with...</p>
                     <div className="flex gap-3">
