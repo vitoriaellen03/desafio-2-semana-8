@@ -15,6 +15,9 @@ import CardUser1 from "../components/CardUser1";
 const Kanban = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
 
+  const [classe, setClasse] = useState("");
+  const [fixar, setFixar] = useState("button-none");
+
   useEffect(() => {
     const loadFetch = async () => {
       try {
@@ -33,11 +36,17 @@ const Kanban = () => {
       {/* <Header /> */}
       <Header />
 
-      <main className="flex justify-center pt-4 pr-6 pb-4 pl-6 items-center">
+      <main className="flex justify-center w-full pt-4 pr-6 pb-4 pl-6 items-center">
         <div className="flex items-center h-full">
-          <div className="column flex-row container-tasks justify-center gap-5 h-h-587 w-w-1051  bg-opacity-25 rounded-4xl">
+          <div className="container-tasks column flex-row justify-center gap-5 h-h-587 w-w-1051  bg-opacity-25 rounded-4xl">
             {/* to-do */}
-            <div className="columns p-[20px]">
+            <div
+              className={
+                classe == "project-none"
+                  ? "container-modal-full columns p-[20px]"
+                  : "container-modal columns p-[20px]"
+              }
+            >
               <div className=" column container-to-do lg:flex flex-col items-center gap-4 pb-2 h-h-553 w-w-310  bg-1E293B bg-opacity-10 rounded-4xl">
                 <div className="div-add-quantity lg:flex justify-between items-center pl-3 pr-3 relative bottom-2 h-11 w-full bg-D3D1F8 rounded-4xl">
                   <div className="lg:flex gap-2 items-center">
@@ -114,15 +123,41 @@ const Kanban = () => {
                   <Card value={"low"} img={""} color={"#22C55E"} /> */}
                 </div>
               </div>
+
+              <button
+                className={
+                  fixar == "button-none"
+                    ? "button-none hidden"
+                    : " w-11 h-11 bg-475569 "
+                }
+                onClick={() => {
+                  setClasse("in-project");
+                  setFixar("button-none");
+                }}
+              >
+                <i className="fa-solid fa-thumbtack text-white"></i>
+              </button>
             </div>
           </div>
 
-          <div className="in-this-project lg:flex flex-col justify-center items-center h-h-538 w-w-18.63 pt-7 pl-5 pb-7 pr-5 bg-6C7D96  rounded-4xl ml-10">
+          <div
+            className={
+              classe == "project-none"
+                ? "project-none hidden"
+                : "in-this-project lg:flex flex-col justify-center items-center h-h-538 w-w-18.63 pt-7 pl-5 pb-7 pr-5 bg-6C7D96  rounded-4xl ml-10"
+            }
+          >
             <div className="div-project-button-fixed flex justify-between w-full mb-3">
               <h3 className="text-white text-base font-bold">
                 In this project
               </h3>
-              <button>
+              {/* button desfixar */}
+              <button
+                onClick={() => {
+                  setClasse("project-none");
+                  setFixar("dyplay");
+                }}
+              >
                 <i className="fa-solid fa-thumbtack text-white"></i>
               </button>
             </div>
@@ -131,28 +166,6 @@ const Kanban = () => {
               {tasks.map((task, i) =>
                 i < 3 ? <CardUser1 img={avatar6} id={i} /> : ""
               )}
-
-              {/* <div className="card-user flex items-center gap-4 w-full h-14 pl-2 pt-1 pb-1 bg-F6F6F6 rounded-2xl">
-                <figure>
-                  <img className="w-11 h-11" src={avatar7} alt="img-user" />
-                </figure>
-                <div>
-                  <h2 className="text-base font-bold">Jane Doe</h2>
-                  <p className="text-8px text-color-btn font-bold">Analyst</p>
-                </div>
-              </div> */}
-              {/* 
-              <div className="card-user flex items-center gap-4 w-full h-14 pl-2 pt-1 pb-1 bg-F6F6F6 rounded-2xl">
-                <figure>
-                  <img className="w-11 h-11" src={avatar6} alt="img-user" />
-                </figure>
-                <div>
-                  <h2 className="text-base font-bold">John Doe</h2>
-                  <p className="text-8px text-color-btn font-bold">
-                    Project Manager
-                  </p>
-                </div>
-              </div> */}
               <p className="flex flex-row-reverse text-8px text-C7C3FFAC w-ful">
                 View all (10)
               </p>
@@ -202,41 +215,6 @@ const Kanban = () => {
                     {tasks.map((task, i) =>
                       i < 3 ? <CardUser2 img={avatar6} id={i} /> : ""
                     )}
-                    {/* <div className="card-user flex items-center gap-2 w-full h-10 pl-2 pt-1 pb-1 bg-F6F6F6 rounded-xl shadow-lg">
-                      <figure>
-                        <img className="w-7 h-7" src={avatar6} alt="img-user" />
-                      </figure>
-                      <div>
-                        <h2 className="text-10px font-bold">John Doe</h2>
-                        <p className="text-5px text-color-btn font-bold">
-                          Project Manager
-                        </p>
-                      </div>
-                    </div> */}
-
-                    {/* <div className="card-user flex items-center gap-2 w-full h-10 pl-2 pt-1 pb-1 bg-F6F6F6 rounded-2xl shadow-lg">
-                      <figure>
-                        <img className="w-7 h-7" src={avatar6} alt="img-user" />
-                      </figure>
-                      <div>
-                        <h2 className="text-10px font-bold">John Doe</h2>
-                        <p className="text-5px text-color-btn font-bold">
-                          Project Manager
-                        </p>
-                      </div>
-                    </div> */}
-
-                    {/* <div className="card-user flex items-center gap-2 w-full h-10 pl-2 pt-1 pb-1 bg-F6F6F6 rounded-2xl shadow-lg">
-                      <figure>
-                        <img className="w-7 h-7" src={avatar6} alt="img-user" />
-                      </figure>
-                      <div>
-                        <h2 className="text-10px font-bold">John Doe</h2>
-                        <p className="text-5px text-color-btn font-bold">
-                          Project Manager
-                        </p>
-                      </div>
-                    </div> */}
                   </div>
                 </div>
               </div>

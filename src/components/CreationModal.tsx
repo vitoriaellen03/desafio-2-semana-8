@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { Task } from "../types/Task";
 import { Outlet, Link } from "react-router-dom";
 
-// const [selectedDate, setSelectedDate] = useState("");
-
 const CreationModal = () => {
   const [title, setTitle] = useState("");
   const [status, setStatus] = useState("");

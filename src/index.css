@@ -5,6 +5,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.container-modal-full {
+  width: 100% !important;
+}
 
 /* input date */
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -49,8 +52,6 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   background-size: cover;
   background-repeat: repeat;
 }
-
-
 
 /* stylen bar scroll */
 .div-scroll-to-do::-webkit-scrollbar {
@@ -98,7 +99,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 /*Login and Signup */
-.loginSection {
+.loginSection,
+.signupSection {
   @apply flex flex-col items-center justify-center text-wordColor gap-8;
   width: auto !important;
   height: max-content !important;
@@ -141,37 +143,29 @@ form [data-type="create-acount"] {
     display: none !important;
   }
 
-  .loginSection{
+  /* .loginSection,
+  .signupSection {
     @apply bg-bglogin bg-no-repeat bg-cover flex flex-grow w-full h-full;
     background-size: cover;
     position: relative;
     display: flex;
     flex-grow: 1;
-  }
-
-  .signupSection {
-    @apply bg-bgsignup;
-    width: auto !important;
-    height: max-content !important;
-    background-size: cover;
-  }
+  } */
 
   .loginSection::before,
   .signupSection::before {
-    content: '';
+    content: "";
     @apply absolute inset-0 bg-white opacity-70;
     backdrop-filter: brightness(0.3);
     z-index: 0;
   }
 
-  .loginSection>*,
-  .signupSection>* {
+  .loginSection > *,
+  .signupSection > * {
     position: relative;
     z-index: 1;
   }
 }
-
-
 
 .loginSection .sec,
 .signupSection .sec {
@@ -185,7 +179,6 @@ form [data-type="create-acount"] {
 
 /**/
 
-
 .inputs {
   @apply flex flex-col gap-2;
 }
@@ -198,14 +191,12 @@ form [data-type="create-acount"] {
   @apply text-red-700 w-520;
 }
 
-
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("boxicons/css/boxicons.min.css");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 * {
   font-family: "Roboto";
@@ -289,7 +280,7 @@ header {
 }
 
 .menu,
-.navbar>.column {
+.navbar > .column {
   @apply flex items-center gap-2.5 text-white;
 }
 
@@ -319,7 +310,7 @@ header {
   @apply flex items-center h-9 font-normal;
 }
 
-.navbar>.column {
+.navbar > .column {
   @apply p-0;
 }
 
@@ -352,13 +343,11 @@ header {
   @apply fill-white/50;
 }
 
-
-.search input:hover+.icon-search path,
-.search input:focus+.icon-search path,
+.search input:hover + .icon-search path,
+.search input:focus + .icon-search path,
 .icon-search:hover path {
   @apply fill-h-link;
 }
-
 
 /**/
 
@@ -482,7 +471,6 @@ form [data-type="login"]:hover {
 
 /**/
 
-
 /* Contents */
 .emphasis-content {
   background: var(--emphasis-content);
@@ -506,7 +494,6 @@ form [data-type="login"]:hover {
   align-items: left;
   justify-content: left;
   flex-direction: column;
-
 }
 
 .aling-center {
@@ -530,7 +517,7 @@ form [data-type="login"]:hover {
 .column {
   display: flex;
   flex-direction: column;
-  width: Fill (1, 560px)px;
+  width: Fill (1, 560px) px;
 }
 
 /**/
@@ -585,7 +572,6 @@ footer p {
   @apply text-white;
 }
 
-
 /* Responsiveness */
 @media (max-width: 1000px) {
   header .columns {
@@ -598,7 +584,7 @@ footer p {
 
   .logo h2.title {
     font-size: 18px;
-    line-height: 24px
+    line-height: 24px;
   }
 
   .columns:not(header .column, footer .column) {
@@ -630,18 +616,15 @@ footer p {
     width: 100% !important;
   }
 
-
   @media (max-width: 1000px) {
     .column:not(header .column) {
       width: 100%;
     }
   }
-
 }
 
 /**/
 @media (max-width: 724px) {
-
   .sec,
   .home-m {
     padding: 60px 20px;
@@ -659,7 +642,6 @@ footer p {
     align-items: center;
   }
 
-
   .stats {
     display: flex !important;
     flex-direction: column !important;
@@ -668,12 +650,12 @@ footer p {
   }
 
   .nav-menu {
-    @apply bg-primary;
     display: flex;
     flex-direction: column;
     position: absolute;
     right: 0;
     top: 80px;
+    background: #331436;
     padding: 20px;
     align-items: flex-start !important;
     z-index: 1000;
@@ -716,7 +698,7 @@ footer p {
 
   .logo h2.title {
     font-size: 14px;
-    line-height: 20px
+    line-height: 20px;
   }
 
   .center {
@@ -724,7 +706,6 @@ footer p {
     justify-content: center;
     align-items: center;
   }
-
 }
 
 .nav-menu li:only-child {
@@ -739,17 +720,16 @@ footer p {
   }
 
   /* Esconde o hambúrguer se houver apenas um único li */
-  .nav-menu li:only-child~.hamburger {
+  .nav-menu li:only-child ~ .hamburger {
     display: none;
   }
 }
-
 
 /* Home page */
 /* Main */
 .home-m {
   @apply bg-center bg-no-repeat bg-cover flex p-[60px] flex-col items-center;
-  height: 66vh !important;
+  height: 80vh !important;
   min-height: 66vh;
   background-image: url("/img/background.webp");
 }
@@ -778,7 +758,7 @@ main .text {
   }
 
   .home-m {
-    height: auto !important;
+    height: auto;
   }
 }
 
@@ -838,9 +818,6 @@ main .text {
     align-items: center;
     flex-direction: row;
   }
-
-
-
 }
 
 .scroll {
@@ -856,8 +833,6 @@ main .text {
 }
 
 /**/
-
-
 
 /*Section Tools*/
 #tools {
