@@ -5,9 +5,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .container-modal-full {
+.container-modal-full {
   width: 100% !important;
-} */
+}
 
 /* input date */
 input[type="date"]::-webkit-calendar-picker-indicator {

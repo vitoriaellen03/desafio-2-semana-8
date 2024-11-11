@@ -14,57 +14,74 @@ const Login = () => {
 
   return (
     <>
-    <Header />
-    <main className="text-sm relative md:text-base lg:flex lg:gap-20 lg:static xl:gap-44">
-      <img src={logo} alt="" className="object-cover w-full h-656 md:h-1000 relative z-0 opacity-30 lg:w-520 xl:w-625 lg:h-656 lg:opacity-100 lg:static" />
-      <div className="loginSection">
-        <section className="text-center md:text-start md:ml-16 md:self-start lg:ml-0">
-          <h1 className="font-bold mb-6 text-base md:text-5xl">Login information</h1>
-          <p>Enter your credentials</p>
-          <span>
-            New here? Let's take you to <Link to="/SignUp" className="text-blue-600 font-bold">sign up</Link>
-          </span>
-        </section>
-        <section className="flex flex-col gap-5">
-          <div className="inputs">
-            <label>Email</label>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              id="email"
-              onChange={validateEmail}
-              className="h-9 w-80 md:w-520 lg:w-400 xl:w-520 pl-2 border rounded-lg border-opacity-10 border-black"
+      <Header />
+      <main className="flex-grow text-sm relative md:text-base flex lg:gap-20 lg:static xl:gap-44" id="login">
+        <section className="flex flex-col w-full lg:flex-row ">
+          <div className="column-image column w-full  mb-0 lg:w-1/2 overflow-hidden">
+            <img
+              src={logo}
+              alt=""
+              className="object-cover w-full h-full opacity-30 lg:opacity-100"
             />
           </div>
-          <div className="inputs">
-            <label>Password</label>
-            <input
-              type="password"
-              placeholder="Enter your password"
-              id="password"
-              onChange={validatePassword}
-              className="h-9 w-80 md:w-520 lg:w-400 xl:w-520 pl-2 border rounded-lg border-opacity-10 border-black"
-            />
-            <span className="hidden" id="spanError">The password must be bigger than 8 characters, contain at least one capital letter, one number and special characters</span>
-          </div>
-          <button className="buttonDark self-center mt-6" onClick={validateUser}>Login</button>
-          <div className="flex flex-col gap-2 self-center text-center">
-            <p>or sign in with...</p>
-            <div className="flex gap-3">
-            <SignInButton forceRedirectUrl="/kanban">
-                <button className="buttonIcons">
-                  <img src={facebookIcon} alt="Facebook icon" />
-                </button>
-                </SignInButton>
-                <SignInButton forceRedirectUrl="/kanban">
-                  <button className="buttonIcons">
-                    <img src={googleIcon} alt="Google icon" />
-                  </button>
-                </SignInButton>
+          <div className="loginSection column flex-col flex-grow" >
+            <div className="sec gap-min">
+              <div className="group gap-min">
+                <h2 className="ttitle">Login information</h2>
+                <div className="group">
+                  <p className="">Enter your credentials</p>
+                  <span>
+                    New here? Let's take you to{" "}
+                    <Link to="/SignUp" className="text-blue-600 font-bold">sign up</Link>
+                  </span>
+                </div>
               </div>
+
+              <form action="">
+                <div className="goup gap-min flex column">
+                  <div className="group">
+                    <label>Email</label>
+                    <input
+                      type="email"
+                      placeholder="Enter your email"
+                      id="email"
+                      onChange={validateEmail}
+                      className="h-9 w-full pl-2 border rounded-lg border-opacity-10 border-black"
+                    />
+                  </div>
+                  <div className="group">
+                    <label>Password</label>
+                    <input
+                      type="password"
+                      placeholder="Enter your password"
+                      id="password"
+                      onChange={validatePassword}
+                      className="h-9 w-full pl-2 border rounded-lg border-opacity-10 border-black"
+                    />
+                    <span className="hidden" id="spanError">
+                      The password must be bigger than 8 characters, contain at least one capital letter, one number and special characters
+                    </span></div>
+                  <button className="btn" data-type="login" onClick={() => window.location.href = 'kanban'} >Login</button>
+                  <div className="flex flex-col gap-2 self-center text-center">
+                    <p>or sign in with...</p>
+                    <div className="flex gap-3">
+                      <SignInButton forceRedirectUrl="/kanban">
+                        <button className="buttonIcons">
+                          <img src={facebookIcon} alt="Facebook icon" />
+                        </button>
+                      </SignInButton>
+                      <SignInButton forceRedirectUrl="/kanban">
+                        <button className="buttonIcons">
+                          <img src={googleIcon} alt="Google icon" />
+                        </button>
+                      </SignInButton>
+                    </div>
+                  </div>
+                </div>
+              </form>
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </>
