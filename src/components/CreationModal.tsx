@@ -1,11 +1,69 @@
-import React from "react";
+import { useState, useEffect } from "react";
+import { Task } from "../types/Task";
 import { Outlet, Link } from "react-router-dom";
 
+// const [selectedDate, setSelectedDate] = useState("");
+
 const CreationModal = () => {
+  const [title, setTitle] = useState("");
+  const [status, setStatus] = useState("");
+  const [description, setDescription] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
+  const [priority, setPriority] = useState("");
+
+  console.log(status);
+  console.log(title);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Montando o objeto post
+    const newPost = {
+      title: title,
+      status: status == "on" ? "mid" : "",
+      description: description,
+      startDate: startDate,
+      endDate: endDate,
+      startTime: startTime,
+      endTime: endTime,
+      priority: priority,
+    };
+
+    try {
+      const response = await fetch("http://localhost:3001/tasks", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newPost),
+      });
+      const data = await response.json();
+      console.log("Post criado:", data);
+
+      // Resetando os valores do formulário após o envio
+      setTitle("");
+      setStatus("");
+      setDescription("");
+      setStartDate("");
+      setEndDate("");
+      setStartTime("");
+      setEndTime("");
+      setPriority("");
+    } catch (error) {
+      console.error("Erro ao criar o post:", error);
+    }
+  };
+
   return (
     <div className="container-creation-modal flex  items-center h-full w-full p-24 bg-black bg-opacity-90 absolute bottom-1">
       {/* create modal */}
-      <div className="create-modal flex flex-col gap-3 h-h-584 w-w-1001 pt-4 pr-11 pb-4 pl-11 bg-F6F6F6  rounded-2xl">
+      <form
+        onSubmit={handleSubmit}
+        className="create-modal flex flex-col gap-3 h-h-584 w-w-1001 pt-4 pr-11 pb-4 pl-11 bg-F6F6F6  rounded-2xl"
+      >
         <div className="container-title-exit flex justify-between w-full text-2xl font-semibold">
           <h2 className="text-color-btn">Create new task</h2>
           <button className="">
@@ -25,8 +83,10 @@ const CreationModal = () => {
                 className="h-9 pl-3 rounded-md border-black border-2 border-opacity-10 outline-none hover:border-black"
                 type="text"
                 name="title"
+                value={title}
                 id="title"
                 placeholder="Enter the title of the task"
+                onChange={(e) => setTitle(e.target.value)}
               />
             </div>
 
@@ -37,17 +97,38 @@ const CreationModal = () => {
                   <label className="" htmlFor="to-do">
                     To do
                   </label>
-                  <input className="" type="checkbox" name="to-do" id="to-do" />
+                  <input
+                    className=""
+                    type="checkbox"
+                    name="to do"
+                    value={status}
+                    id="to-do"
+                    onChange={(e) =>
+                      setStatus(e.target.value == "on" ? "mid" : "")
+                    }
+                  />
                 </div>
 
                 <div className="flex flex-row-reverse gap-3">
                   <label htmlFor="to-do">In progress</label>
-                  <input type="checkbox" name="in-progress" id="in-progress" />
+                  <input
+                    type="checkbox"
+                    name="in-progress"
+                    value={status}
+                    id="in-progress"
+                    onChange={(e) => setStatus(e.target.value)}
+                  />
                 </div>
 
                 <div className="flex flex-row-reverse gap-3">
                   <label htmlFor="to-do">Done</label>
-                  <input type="checkbox" name="done" id="done" />
+                  <input
+                    type="checkbox"
+                    name="done"
+                    value={status}
+                    id="done"
+                    onChange={(e) => setStatus(e.target.value)}
+                  />
                 </div>
               </div>
 
@@ -61,8 +142,12 @@ const CreationModal = () => {
                 <textarea
                   className="w-full h-28 resize-none pl-3 border-black border-2 rounded-md border-opacity-10 outline-none hover:border-black "
                   name="description"
+                  // value={post.menssage}
                   id="description"
                   placeholder="Enter a description"
+                  maxLength={300}
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
                 ></textarea>
               </div>
               {/* start date */}
@@ -76,7 +161,10 @@ const CreationModal = () => {
                       className="text-center opacity-50 text-14px outline-none border-none"
                       type="date"
                       name="date"
+                      value={startDate}
+                      required
                       id="date"
+                      onChange={(e) => setStartDate(e.target.value)}
                     />
                   </div>
                   <div className="time flex items-center gap-1 w-w-107 h-h-52 pt-2 pr-4 pb-2 pl-4 bg-white rounded-md border-black border-2 border-opacity-10 hover:border-black ">
@@ -85,7 +173,10 @@ const CreationModal = () => {
                       className="text-14px opacity-50 outline-none border-none"
                       type="time"
                       name="time"
-                      id="time"
+                      value={startTime}
+                      required
+                      // id="time"
+                      onChange={(e) => setStartTime(e.target.value)}
                     />
                   </div>
                 </div>
@@ -103,7 +194,9 @@ const CreationModal = () => {
                       className="text-center opacity-50 text-14px outline-none border-none"
                       type="date"
                       name="date"
+                      value={endDate}
                       id="date"
+                      onChange={(e) => setEndDate(e.target.value)}
                     />
                   </div>
                   <div className="time flex items-center gap-1 w-w-107 h-h-52 pt-2 pr-4 pb-2 pl-4 bg-white rounded-md border-black border-2 border-opacity-10 hover:border-black">
@@ -112,7 +205,9 @@ const CreationModal = () => {
                       className=" text-14px opacity-50 outline-none border-none"
                       type="time"
                       name="time"
+                      value={endTime}
                       id="time"
+                      onChange={(e) => setEndTime(e.target.value)}
                     />
                   </div>
                 </div>
@@ -189,28 +284,39 @@ const CreationModal = () => {
                 <div className="div-checkbox flex  gap-3">
                   <div className="flex flex-row-reverse gap-3">
                     <label className="" htmlFor="to-do">
-                      Low
+                      Mid
                     </label>
                     <input
                       className=""
                       type="checkbox"
-                      name="to-do"
-                      id="to-do"
+                      name="mid"
+                      value={priority}
+                      id="mid"
+                      onChange={(e) => setPriority(e.target.value)}
                     />
                   </div>
 
                   <div className="flex flex-row-reverse gap-3">
-                    <label htmlFor="to-do">Low</label>
+                    <label htmlFor="low">Low</label>
                     <input
                       type="checkbox"
-                      name="in-progress"
-                      id="in-progress"
+                      name="low"
+                      value={priority}
+                      id="low"
+                      onChange={(e) => setPriority(e.target.value)}
                     />
                   </div>
 
                   <div className="flex flex-row-reverse gap-3">
-                    <label htmlFor="to-do">High</label>
-                    <input type="checkbox" name="done" id="done" />
+                    <label htmlFor="high">High</label>
+
+                    <input
+                      type="checkbox"
+                      name="high"
+                      value={priority}
+                      id="high"
+                      onChange={(e) => setPriority(e.target.value)}
+                    />
                   </div>
                 </div>
               </div>
@@ -219,13 +325,13 @@ const CreationModal = () => {
               {/* <button className="flex justify-center items-center w-full h-12 text-white bg-color-green rounded-md text-base font-medium mt-8">
                 Create!
               </button> */}
-              <button className="btn mt-8" data-type="create">
+              <button type="submit" className="btn mt-8" data-type="create">
                 Create!
               </button>
             </div>
           </div>
         </div>
-      </div>
+      </form>
       {/* the end create modal */}
     </div>
   );
