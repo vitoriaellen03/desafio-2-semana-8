@@ -1,16 +1,36 @@
-import { useUser } from "@clerk/clerk-react"
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import user1 from "/img/userImgProfile.png";
 import user2 from "/img/user2.png";
 import db from "../data/db.json";
 
-const Profile = () => {
-  const { user } = useUser();
+interface UserData {
+  firstName: string;
+  lastname: string;
+  user: string;
+  email: string;
+  socialNetworks: {
+    twitter: string;
+    instagram: string;
+    linkedin: string;
+  };
+  id: string;
+  creationDate: string;
+  jobPosition: string;
+}
 
-  const userData = db.users.find((dbUser) => dbUser.email === user?.primaryEmailAddress?.emailAddress);
-  const usermail = userData?.jobPosition;
-  console.log(usermail);
+const Profile = () => {
+  const [userData, setUserData] = useState<UserData | null>(null);
+
+  useEffect(() => {
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser") || '{}');
+
+    if (loggedInUser?.email) {
+      const user = db.users.find((dbUser) => dbUser.email === loggedInUser.email);
+      setUserData(user);
+    }
+  }, []);
 
   return (
     <div>
@@ -19,10 +39,14 @@ const Profile = () => {
         <div className="flex flex-col w-full md:w-[45%] pr-8">
           <div className="flex items-center mb-6">
             <div>
-              <img src={user?.hasImage ? user.imageUrl : user1} alt="Profile picture of the user" className="w-48 h-46 rounded-6 mb-4" />
+              <img 
+                src={user1} 
+                alt="Profile picture of the user" 
+                className="w-48 h-46 rounded-6 mb-4" 
+              />
             </div>
             <div className="ml-3">
-              <h1 className="text-4xl font-medium">{userData?.firstName} {userData?.lastName}</h1>
+              <h1 className="text-4xl font-medium">{userData?.firstName} {userData?.lastname}</h1>
               <p className="text-gray-500">{userData?.user}</p>
             </div>
           </div>
@@ -30,7 +54,7 @@ const Profile = () => {
           <div className="mb-8 border-b border-b-gray-300">
             <h1 className="text-3xl font-medium">Profile data</h1>
             <p className="text-base font-normal text-gray-500 mb-8">
-              {userData?.firstName} {userData?.lastName}'s information
+              {userData?.firstName} {userData?.lastname}'s information
             </p>
           </div>
 
@@ -54,7 +78,7 @@ const Profile = () => {
               <h3 className="font-semibold text-gray-500">User ID</h3>
               <p className="text-gray-500">{userData?.id}</p>
               <h3 className="font-semibold text-gray-500">Creation date</h3>
-              <p className="text-gray-500">{userData?.createdAt}</p>
+              <p className="text-gray-500">{userData?.creationDate}</p>
               <h3 className="font-semibold text-gray-500">Title</h3>
               <p className="text-gray-500">{userData?.jobPosition}</p>
             </div>
@@ -65,12 +89,12 @@ const Profile = () => {
           <div className="mb-8">
             <h1 className="text-3xl font-medium">Latest activity</h1>
             <p className="text-base font-normal text-gray-500">
-              {db.users[0].firstName} {db.users[0].lastName}'s last interactions
+              {userData?.firstName} {userData?.lastname}'s last interactions
             </p>
             <div className="mt-6 mb-10 space-y-4">
             <div className="flex items-center">
               <img src={user1} alt="profile picture" className="w-10 h-10 rounded-full" />
-              <p className="text-base font-medium text-gray-500 ml-2"><span className="text-slate-900">John Doe</span> marked a task as done <span className="text-slate-950">on Set 25, 2024</span></p>
+              <p className="text-base font-medium text-gray-500 ml-2"><span className="text-slate-900">{userData?.firstName} {userData?.lastname}</span> marked a task as done <span className="text-slate-950">on Set 25, 2024</span></p>
             </div>
             <div className="flex items-center">
               <img src={user2} alt="profile picture" className="w-10 h-10 rounded-full" />
@@ -78,11 +102,11 @@ const Profile = () => {
             </div>
             <div className="flex items-center">
               <img src={user1} alt="profile picture" className="w-10 h-10 rounded-full" />
-              <p className="text-base font-medium text-gray-500 ml-2"><span className="text-slate-950">John Doe</span> marked a task as done <span className="text-slate-950">on Set 25, 2024</span></p>
+              <p className="text-base font-medium text-gray-500 ml-2"><span className="text-slate-950">{userData?.firstName} {userData?.lastname}</span> marked a task as done <span className="text-slate-950">on Set 25, 2024</span></p>
             </div>
             <div className="flex items-center">
               <img src={user1} alt="profile picture" className="w-10 h-10 rounded-full" />
-              <p className="text-base font-medium text-gray-500 ml-2"><span className="text-slate-950">John Doe</span> marked a task as done <span className="text-slate-950">on Set 25, 2024</span></p>
+              <p className="text-base font-medium text-gray-500 ml-2"><span className="text-slate-950">{userData?.firstName} {userData?.lastname}</span> marked a task as done <span className="text-slate-950">on Set 25, 2024</span></p>
             </div>
             <div className="flex items-center">
               <img src={user2} alt="profile picture" className="w-10 h-10 rounded-full" />
@@ -90,11 +114,11 @@ const Profile = () => {
             </div>
             <div className="flex items-center">
               <img src={user1} alt="profile picture" className="w-10 h-10 rounded-full" />
-              <p className="text-base font-medium text-gray-500 ml-2"><span className="text-slate-950">John Doe</span> marked a task as done <span className="text-slate-950">on Set 25, 2024</span></p>
+              <p className="text-base font-medium text-gray-500 ml-2"><span className="text-slate-950">{userData?.firstName} {userData?.lastname}</span> marked a task as done <span className="text-slate-950">on Set 25, 2024</span></p>
             </div>
             <div className="flex items-center">
               <img src={user1} alt="profile picture" className="w-10 h-10 rounded-full" />
-              <p className="text-base font-medium text-gray-500 ml-2"><span className="text-slate-950">John Doe</span> marked a task as done <span className="text-slate-950">on Set 25, 2024</span></p>
+              <p className="text-base font-medium text-gray-500 ml-2"><span className="text-slate-950">{userData?.firstName} {userData?.lastname}</span> marked a task as done <span className="text-slate-950">on Set 25, 2024</span></p>
             </div>
             </div>
           </div>

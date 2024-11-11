@@ -16,6 +16,7 @@ export function validateUser() {
 
       if (user) {
         location.pathname = "/kanban";
+        localStorage.setItem("loggedInUser", JSON.stringify(user));
       } else {
         location.pathname = "/BlockedPage";
       }
