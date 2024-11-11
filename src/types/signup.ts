@@ -30,17 +30,22 @@ export async function signUp() {
     ) {
       api
         .post("", {
-          id: Math.floor(Math.random() * 1000),
           firstName: name.value,
           lastname: lastname.value,
           user: "@"+ name.value + lastname.value,
           creationDate: today.toLocaleDateString(),
           email: email.value,
-          role: job.value,
+          jobPosition: job.value,
           password: password.value,
+          socialNetworks: {
+            twitter: "",
+            instagram: "",
+            linkedin: "",
+          }
         })
         .then((response) => {
           console.log(response);
+          localStorage.setItem("user", JSON.stringify(response.data));
           location.pathname = "/kanban";
         })
         .catch((error) => {

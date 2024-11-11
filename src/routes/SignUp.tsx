@@ -15,7 +15,8 @@ const Login = () => {
       <Header />
       <main className="flex-grow text-sm relative md:text-base flex lg:gap-20 lg:static xl:gap-44" id="signup">
         <section className="flex flex-col w-full lg:flex-row">
-          <div className="signupSection column flex-col flex-grow">
+          {/* Inverte a ordem da imagem de fundo e do formulário */}
+          <div className="signSection column flex-col flex-grow">
             <div className="sec gap-min">
               <div className="group gap-min">
                 <h2 className="ttitle">Sign Up Information</h2>
@@ -27,9 +28,12 @@ const Login = () => {
                   </span>
                 </div>
               </div>
+
               <form action="">
-                <div className="group columns inp">
-                  <div className="column">
+                {/* Campos adicionais do formulário de Sign Up */}
+                <div className="group gap-min flex column">
+                  <div className="group columns">
+                    div.column
                     <label>First Name</label>
                     <input
                       type="text"
@@ -41,8 +45,6 @@ const Login = () => {
                     <span className="hidden" id="nameError">
                       The name must be bigger than 2 characters.
                     </span>
-                  </div>
-                  <div className="column">
                     <label>Last Name</label>
                     <input
                       type="text"
@@ -56,7 +58,7 @@ const Login = () => {
                     </span>
                   </div>
                 </div>
-                <div className="group">
+                <div className="group gap-min flex column">
                   <label>Job Position</label>
                   <input
                     type="text"
@@ -92,7 +94,7 @@ const Login = () => {
                     The password must be bigger than 8 characters, contain at least one capital letter, one number, and special characters.
                   </span>
                 </div>
-                <button type="submit" onClick={(e) => { e.preventDefault(); signUp() }} className="btn" data-type="create-acount">
+                <button type="submit" onClick={(e) => { e.preventDefault(); signUp() }} className="btn">
                   Create an account
                 </button>
                 <div className="flex flex-col gap-2 self-center text-center mt-4">
@@ -113,6 +115,7 @@ const Login = () => {
               </form>
             </div>
           </div>
+          {/* Imagem de fundo à direita para Sign Up */}
           <div className="column-image column w-full mb-0 lg:w-1/2 overflow-hidden">
             <img
               src={logo}
@@ -120,8 +123,8 @@ const Login = () => {
               className="object-cover w-full h-full opacity-30 lg:opacity-100"
             />
           </div>
-        </section >
-      </main >
+        </section>
+      </main>
 
       <Footer />
     </>

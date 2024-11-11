@@ -29,7 +29,7 @@
       "creationDate": "05/11/2024",
       "email": "reactTypescript@gmail.com",
       "password": "1343424@",
-      "role": "Desenvolvedor Front end",
+      "jobPosition": "Desenvolvedor Front end",
       "socialNetwork": [
         "@aless",
         "@ale_92",
@@ -50,6 +50,101 @@
         "instagram": "@nadinha",
         "linkedin": "uiuiui"
       }
+    },
+    {
+      "id": "3",
+      "firstName": "mary",
+      "lastName": "sleepy",
+      "email": "marycarol.00@gmail.com",
+      "password": "123456",
+      "user": "@maria",
+      "jobPosition": "Front-end developer",
+      "createdAt": "2024-11-05T15:00:00.000Z",
+      "socialNetworks": {
+        "twitter": "ntenho",
+        "instagram": "@imtired",
+        "linkedin": "mecontrate"
+      }
+    },
+    {
+      "id": "106",
+      "firstName": "Mirtes",
+      "lastname": "Marinho",
+      "user": "@MirtesMarinho",
+      "creationDate": "11/11/2024",
+      "email": "mirtes@nothing.com",
+      "role": "Back end developer",
+      "password": "L1nd1nh@",
+      "socialNetworks": {
+        "twitter": "",
+        "instagram": "",
+        "linkedin": ""
+      }
+    },
+    {
+      "id": "142",
+      "firstName": "Adriano",
+      "lastname": "Silva",
+      "user": "@AdrianoSilva",
+      "creationDate": "11/11/2024",
+      "email": "adriano@algo.com",
+      "jobPosition": "Ful stack developer",
+      "password": "Adri14n0#",
+      "socialNetworks": {
+        "twitter": "",
+        "instagram": "",
+        "linkedin": ""
+      }
+    },
+    {
+      "id": "77",
+      "firstName": "Rafael",
+      "lastname": "Souza",
+      "user": "@RafaelSouza",
+      "creationDate": "11/11/2024",
+      "email": "rafa@dev.com",
+      "jobPosition": "Full stack developer",
+      "password": "R@f43ldev",
+      "socialNetworks": {
+        "twitter": "",
+        "instagram": "",
+        "linkedin": ""
+      }
+    },
+    {
+      "id": "6c21",
+      "firstName": "Gleide",
+      "lastname": "Bento",
+      "user": "@GleideBento",
+      "creationDate": "11/11/2024",
+      "email": "gleidinha@algo.com",
+      "jobPosition": "Front end developer",
+      "password": "Gl31dinh@",
+      "socialNetworks": {
+        "twitter": "",
+        "instagram": "",
+        "linkedin": ""
+      }
+    },
+    {
+      "id": 495,
+      "firstName": "edade",
+      "lastname": "aedae",
+      "user": "@edadeaedae",
+      "creationDate": "11/11/2024",
+      "email": "asd@gm.c",
+      "role": "aedaed aedaedea",
+      "password": "SADAS2sadas@"
+    },
+    {
+      "id": 861,
+      "firstName": "estou",
+      "lastname": "cansado",
+      "user": "@estoucansado",
+      "creationDate": "11/11/2024",
+      "email": "mds@me.ajuda",
+      "role": "n sei",
+      "password": "Socorro1!"
     }
   ]
 }
