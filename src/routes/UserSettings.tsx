@@ -14,6 +14,12 @@ interface Preferences {
   reports: boolean;
 }
 
+interface Errors {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+}
+
 const User = () => {
   const { user } = useUser();
   const userInfo = db.users.find((dbUser) => dbUser.email === user?.primaryEmailAddress?.emailAddress);
@@ -35,7 +41,11 @@ const User = () => {
     reports: false,
   });
   const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState<Errors>({});
   const navigate = useNavigate();
+
+  const nameRegex = /^[A-Za-z]{3,}$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   useEffect(() => {
     const savedPreferences = localStorage.getItem('userPreferences');
@@ -54,6 +64,32 @@ const User = () => {
       ...prevData,
       [name]: value,
     }));
+
+    if (name === 'firstName' || name === 'lastName') {
+      if (!nameRegex.test(value)) {
+        setErrors(prevErrors => ({
+          ...prevErrors,
+          [name]: `${name === 'firstName' ? 'First' : 'Last'} name must be at least 3 letters and contain only letters.`,
+        }));
+      } else {
+        setErrors(prevErrors => ({
+          ...prevErrors,
+          [name]: undefined,
+        }));
+      }
+    } else if (name === 'email') {
+      if (!emailRegex.test(value)) {
+        setErrors(prevErrors => ({
+          ...prevErrors,
+          email: 'Please enter a valid email address.',
+        }));
+      } else {
+        setErrors(prevErrors => ({
+          ...prevErrors,
+          email: undefined,
+        }));
+      }
+    }
   };
   
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -114,16 +150,13 @@ const User = () => {
       if (!response.ok) {
         throw new Error('Failed to update user data');
       }
-  
-      alert('User information updated successfully!');
-      
+            
       const updatedResponse = await fetch(`http://localhost:3000/users/${loggedInUserId}`);
       const updatedData = await updatedResponse.json();
       setUserData(updatedData);
       
     } catch (error) {
       console.error("Failed to update user data", error);
-      alert('Failed to update user information!');
     } finally {
       setLoading(false);
     }
@@ -170,50 +203,60 @@ const User = () => {
         <div className="flex flex-col space-y-4 w-full md:w-2/4">
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
             <div className="flex flex-col w-full md:w-1/2">
-              <label htmlFor="firstName" className="text-sm font-medium">
-                First name
-              </label>
-              <input
-                type="text"
-                id="firstName"
-                className="p-1 border rounded-md border-gray-300 w-full"
-                name='firstName'
-                value={userData.firstName}
-                placeholder="New first name"
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="flex flex-col w-full md:w-1/2">
-              <label htmlFor="lastName" className="text-sm font-medium">
-                Last name
-              </label>
-              <input
-                type="text"
-                id="lastName"
-                className="p-1 border rounded-md border-gray-300 w-full"
-                name='lastName'
-                value={userData.lastName}
-                placeholder="New last name"
-                onChange={handleInputChange}
-              />
-            </div>
-          </div>
-          <div>
-            <label htmlFor="email" className="text-sm font-medium">
-              E-mail
+            <label htmlFor="firstName" className="text-sm font-medium">
+              First name
             </label>
             <input
-              type="email"
-              id="email"
-              className="w-full p-1 border rounded-md border-gray-300"
-              name='email'
-              value={userData.email}
-              placeholder="New e-mail"
+              type="text"
+              id="firstName"
+              className="p-1 border rounded-md border-gray-300 w-full"
+              name="firstName"
+              value={userData.firstName}
+              placeholder="New first name"
               onChange={handleInputChange}
             />
+            {errors.firstName && (
+              <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>
+            )}
+          </div>
+          <div className="flex flex-col w-full md:w-1/2">
+            <label htmlFor="lastName" className="text-sm font-medium">
+              Last name
+            </label>
+            <input
+              type="text"
+              id="lastName"
+              className="p-1 border rounded-md border-gray-300 w-full"
+              name="lastName"
+              value={userData.lastName}
+              placeholder="New last name"
+              onChange={handleInputChange}
+            />
+            {errors.lastName && (
+              <p className="text-red-500 text-xs mt-1">{errors.lastName}</p>
+            )}
           </div>
         </div>
+        <div>
+          <label htmlFor="email" className="text-sm font-medium">
+            E-mail
+          </label>
+          <input
+            type="email"
+            id="email"
+            className="w-full p-1 border rounded-md border-gray-300"
+            name="email"
+            value={userData.email}
+            placeholder="New e-mail"
+            onChange={handleInputChange}
+          />
+          {errors.email && (
+            <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+          )}
+        </div>
+        </div>
       </div>
+
 
       <div className="pt-4 flex flex-col md:flex-row justify-between border-b border-b-gray-400 pb-4 ml-4 md:ml-10 mr-4 md:mr-10">
         <div className="mb-4 md:mb-0 md:mr-12 w-full md:w-96">

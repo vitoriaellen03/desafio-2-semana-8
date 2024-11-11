@@ -53,17 +53,17 @@
     },
     {
       "id": "3",
-      "firstName": "Mariazinha",
-      "lastName": "Reis",
+      "firstName": "mary",
+      "lastName": "sleepy",
       "email": "marycarol.00@gmail.com",
       "password": "123456",
       "user": "@maria",
       "jobPosition": "Front-end developer",
       "createdAt": "2024-11-05T15:00:00.000Z",
       "socialNetworks": {
-        "twitter": "nada",
-        "instagram": "@marys",
-        "linkedin": "marydev"
+        "twitter": "ntenho",
+        "instagram": "@imtired",
+        "linkedin": "mecontrate"
       }
     },
     {
