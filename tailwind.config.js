@@ -109,6 +109,10 @@ export default {
         "gradient-purple": "#FC04BA",
         "gradient-yellow": "#FFC702",
       },
+      backgroundImage: {
+        'bglogin': "url('/img/loginPhoto.png')",
+        'bgsignup': "url('/img/photoSign.png')",
+      },
     },
   },
   plugins: [],

@@ -61,12 +61,12 @@ const Login = () => {
                     <img src={googleIcon} alt="Google icon" />
                   </button>
                 </SignInButton>
+              </div>
             </div>
-          </div>
-        </section>
-      </div>
-    </main>
-    <Footer />
+          </section>
+        </div>
+      </main>
+      <Footer />
     </>
   );
 };

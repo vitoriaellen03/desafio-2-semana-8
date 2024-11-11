@@ -13,7 +13,9 @@ function App() {
                         <h1 className="title">Welcome to <span className="text-emphasis-blue">Project Manager</span></h1>
                         <p className="text">Get your projects and ideas in order, all in one place! Sign up now and discover a
                             smarter way to manage your work with efficiency and teamwork</p>
-                        <button className="btn" data-type="get-started" onClick={() => window.location.href = '/signup'}>Get Started</button>
+                        <div className="group center">
+                            <button className="btn" data-type="get-started" onClick={() => window.location.href = '/signup'}>Get Started</button>
+                        </div>
                     </div>
                     <div className="column flo">
                         <img className="floatwoman" src="/img/woman.png" alt="" />
@@ -35,7 +37,9 @@ function App() {
                             than ever. With a clean, intuitive interface and powerful features, you can plan, prioritize, and
                             keep
                             tabs on your projects - whether you’re working solo or a with a team</p>
-                        <button className="btn" data-type="learn-more">Learn More</button>
+                        <div className="group center">
+                            <button className="btn" data-type="learn-more">Learn More</button>
+                        </div>
                     </div>
                     <div className="columns scroll">
                         <div className="column">
@@ -109,20 +113,20 @@ function App() {
             <section className="sec" id="subscribe">
                 <div className="content">
                     <div className="columns">
-                        <div className="column max-column justify-center gap-min">
+                        <div className="column center max-column justify-center gap-min">
                             <h2 className="title">Subscribe to Updates</h2>
                             <p className="text">Stay informed with our latest updates</p>
                         </div>
                         <div className="column max-column">
                             <form className="form" id="subscribeForm">
                                 <div className="group">
-                                    <label for="email">Email</label>
+                                    <label htmlFor="email">Email</label>
                                     <input type="email" id="email" name="email" placeholder="Enter your email" required />
                                     <span className="alert-form">We promise not to spam</span>
                                 </div>
 
                                 <div className="group">
-                                    <label for="name">Name</label>
+                                    <label htmlFor="name">Name</label>
                                     <input type="text" id="name" name="name" placeholder="Enter your name" required />
                                     <span className="alert-form"></span>
                                 </div>
