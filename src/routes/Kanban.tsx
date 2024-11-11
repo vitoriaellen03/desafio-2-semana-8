@@ -27,29 +27,14 @@ const Kanban = () => {
 
     loadFetch();
   });
-  // useEffect(() => {
-  //   const dbJson = async () => {
-  //     try {
-  //       const response = await fetch("http://localhost:3001/tasks");
-  //       if (!response.ok) {
-  //         throw new Error(`Erro na requisição: ${response.status}`);
-  //       }
-
-  //       const tasks = await response.json();
-  //       setData(tasks);
-  //     } catch {}
-  //   };
-
-  //   dbJson();
-  // }, [data]);
 
   return (
     <div className="lg:h-screen w-full relative">
       {/* <Header /> */}
       <Header />
 
-      <main className="sec">
-        <div className="columns">
+      <main className="flex justify-center pt-4 pr-6 pb-4 pl-6 items-center">
+        <div className="flex items-center h-full">
           <div className="column flex-row container-tasks justify-center gap-5 h-h-587 w-w-1051  bg-opacity-25 rounded-4xl">
             {/* to-do */}
             <div className="columns p-[20px]">
@@ -132,7 +117,7 @@ const Kanban = () => {
             </div>
           </div>
 
-          <div className="column in-this-project lg: flex flex-col justify-center items-center h-h-538 w-w-18.63 pt-7 pl-5 pb-7 pr-5 bg-6C7D96  rounded-4xl ml-10">
+          <div className="in-this-project lg:flex flex-col justify-center items-center h-h-538 w-w-18.63 pt-7 pl-5 pb-7 pr-5 bg-6C7D96  rounded-4xl ml-10">
             <div className="div-project-button-fixed flex justify-between w-full mb-3">
               <h3 className="text-white text-base font-bold">
                 In this project
