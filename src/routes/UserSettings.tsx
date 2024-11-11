@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import userImg from "/img/userImg.png";
 import uploadImg from "/img/uploadImg.png";
 import uploadBin from "/img/uploadBin.png";
+import db from "../data/db.json";
 
 interface Preferences {
   tasks: boolean;
@@ -13,8 +14,15 @@ interface Preferences {
   reports: boolean;
 }
 
+interface Errors {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+}
+
 const User = () => {
   const { user } = useUser();
+  const userInfo = db.users.find((dbUser) => dbUser.email === user?.primaryEmailAddress?.emailAddress);
   const [userData, setUserData] = useState({
     firstName: '',
     lastName: '',
@@ -33,7 +41,11 @@ const User = () => {
     reports: false,
   });
   const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState<Errors>({});
   const navigate = useNavigate();
+
+  const nameRegex = /^[A-Za-z]{3,}$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   useEffect(() => {
     const savedPreferences = localStorage.getItem('userPreferences');
@@ -52,6 +64,32 @@ const User = () => {
       ...prevData,
       [name]: value,
     }));
+
+    if (name === 'firstName' || name === 'lastName') {
+      if (!nameRegex.test(value)) {
+        setErrors(prevErrors => ({
+          ...prevErrors,
+          [name]: `${name === 'firstName' ? 'First' : 'Last'} name must be at least 3 letters and contain only letters.`,
+        }));
+      } else {
+        setErrors(prevErrors => ({
+          ...prevErrors,
+          [name]: undefined,
+        }));
+      }
+    } else if (name === 'email') {
+      if (!emailRegex.test(value)) {
+        setErrors(prevErrors => ({
+          ...prevErrors,
+          email: 'Please enter a valid email address.',
+        }));
+      } else {
+        setErrors(prevErrors => ({
+          ...prevErrors,
+          email: undefined,
+        }));
+      }
+    }
   };
   
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -92,6 +130,7 @@ const User = () => {
 
   const handleSubmit = async () => {
     setLoading(true);
+    const loggedInUserId = userInfo?.id;
     try {
       const updatedFields = {
         firstName: userData.firstName,
@@ -100,7 +139,7 @@ const User = () => {
         socialNetworks: userData.socialNetworks,
       };
   
-      const response = await fetch('http://localhost:3000/users/1', {
+      const response = await fetch(`http://localhost:3000/users/${loggedInUserId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -111,16 +150,13 @@ const User = () => {
       if (!response.ok) {
         throw new Error('Failed to update user data');
       }
-  
-      alert('User information updated successfully!');
-      
-      const updatedResponse = await fetch('http://localhost:3000/users/1');
+            
+      const updatedResponse = await fetch(`http://localhost:3000/users/${loggedInUserId}`);
       const updatedData = await updatedResponse.json();
       setUserData(updatedData);
       
     } catch (error) {
       console.error("Failed to update user data", error);
-      alert('Failed to update user information!');
     } finally {
       setLoading(false);
     }
@@ -167,50 +203,60 @@ const User = () => {
         <div className="flex flex-col space-y-4 w-full md:w-2/4">
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
             <div className="flex flex-col w-full md:w-1/2">
-              <label htmlFor="firstName" className="text-sm font-medium">
-                First name
-              </label>
-              <input
-                type="text"
-                id="firstName"
-                className="p-1 border rounded-md border-gray-300 w-full"
-                name='firstName'
-                value={userData.firstName}
-                placeholder="New first name"
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="flex flex-col w-full md:w-1/2">
-              <label htmlFor="lastName" className="text-sm font-medium">
-                Last name
-              </label>
-              <input
-                type="text"
-                id="lastName"
-                className="p-1 border rounded-md border-gray-300 w-full"
-                name='lastName'
-                value={userData.lastName}
-                placeholder="New last name"
-                onChange={handleInputChange}
-              />
-            </div>
-          </div>
-          <div>
-            <label htmlFor="email" className="text-sm font-medium">
-              E-mail
+            <label htmlFor="firstName" className="text-sm font-medium">
+              First name
             </label>
             <input
-              type="email"
-              id="email"
-              className="w-full p-1 border rounded-md border-gray-300"
-              name='email'
-              value={userData.email}
-              placeholder="New e-mail"
+              type="text"
+              id="firstName"
+              className="p-1 border rounded-md border-gray-300 w-full"
+              name="firstName"
+              value={userData.firstName}
+              placeholder="New first name"
               onChange={handleInputChange}
             />
+            {errors.firstName && (
+              <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>
+            )}
+          </div>
+          <div className="flex flex-col w-full md:w-1/2">
+            <label htmlFor="lastName" className="text-sm font-medium">
+              Last name
+            </label>
+            <input
+              type="text"
+              id="lastName"
+              className="p-1 border rounded-md border-gray-300 w-full"
+              name="lastName"
+              value={userData.lastName}
+              placeholder="New last name"
+              onChange={handleInputChange}
+            />
+            {errors.lastName && (
+              <p className="text-red-500 text-xs mt-1">{errors.lastName}</p>
+            )}
           </div>
         </div>
+        <div>
+          <label htmlFor="email" className="text-sm font-medium">
+            E-mail
+          </label>
+          <input
+            type="email"
+            id="email"
+            className="w-full p-1 border rounded-md border-gray-300"
+            name="email"
+            value={userData.email}
+            placeholder="New e-mail"
+            onChange={handleInputChange}
+          />
+          {errors.email && (
+            <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+          )}
+        </div>
+        </div>
       </div>
+
 
       <div className="pt-4 flex flex-col md:flex-row justify-between border-b border-b-gray-400 pb-4 ml-4 md:ml-10 mr-4 md:mr-10">
         <div className="mb-4 md:mb-0 md:mr-12 w-full md:w-96">
@@ -270,7 +316,7 @@ const User = () => {
               id="tasks"
               checked={preferences.tasks}
               onChange={handleCheckboxChange}
-              className="w-4 h-4 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+              className="w-4 h-4 appearence-none checked:bg-[#5570F1]"
             />
             <label htmlFor="tasks-checkbox" className="text-sm font-medium text-gray-700 ml-2">New tasks</label>
           </div>
@@ -282,7 +328,7 @@ const User = () => {
               id="members"
               checked={preferences.members}
               onChange={handleCheckboxChange}
-              className="w-4 h-4 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+              className="w-4 h-4 appearence-none checked:bg-[#5570F1]"
             />
             <label htmlFor="members-checkbox" className="text-sm font-medium text-gray-700 ml-2">New team members</label>
           </div>
@@ -294,7 +340,7 @@ const User = () => {
               id="reports"
               checked={preferences.reports}
               onChange={handleCheckboxChange}
-              className="w-4 h-4 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+              className="w-4 h-4 appearence-none checked:bg-[#5570F1]"
             />
             <label htmlFor="reports-checkbox" className="text-sm font-medium text-gray-700 ml-2">Weekly reports</label>
           </div>
@@ -317,13 +363,13 @@ const User = () => {
             type="text"
             className="w-1/3 p-2 border border-gray-300 rounded-lg"
             placeholder="x.com/"
-            value={userData.socialNetworks.twitter}
+            value={userData.socialNetworks?.twitter}
             onChange={(e) => handleSocialNetworkChange(e, 'twitter')}
           />
           <input
             type="text"
             className="w-1/3 p-2 border border-gray-300 rounded-md"
-            placeholder={userData.socialNetworks.twitter}
+            placeholder={userData.socialNetworks?.twitter}
           />
         </div>
         </div>
@@ -334,13 +380,13 @@ const User = () => {
             type="text"
             className="w-1/3 p-2 border border-gray-300 rounded-lg"
             placeholder="instagram.com/"
-            value={userData.socialNetworks.instagram}
+            value={userData.socialNetworks?.instagram}
             onChange={(e) => handleSocialNetworkChange(e, 'instagram')}
           />
           <input
             type="text"
             className="w-1/3 p-2 border border-gray-300 rounded-md"
-            placeholder={userData.socialNetworks.instagram}
+            placeholder={userData.socialNetworks?.instagram}
           />
         </div>
         </div>
@@ -351,13 +397,13 @@ const User = () => {
             type="text"
             className="w-1/3 p-2 border border-gray-300 rounded-lg"
             placeholder="linkedin.com/in/"
-            value={userData.socialNetworks.linkedin}
+            value={userData.socialNetworks?.linkedin}
             onChange={(e) => handleSocialNetworkChange(e, 'linkedin')}
           />
           <input
             type="text"
             className="w-1/3 p-2 border border-gray-300 rounded-md"
-            placeholder={userData.socialNetworks.linkedin}
+            placeholder={userData.socialNetworks?.linkedin}
           />
         </div>
       </div>
@@ -366,7 +412,7 @@ const User = () => {
 
       <div className="flex flex-col items-center space-y-2 pt-16 pb-16 ml-5 mr-5 md:ml-10 md:mr-10">
         <button
-          className="bg-primary text-white w-full md:w-1/3 h-12 p-4 rounded-md flex items-center justify-center"
+          className="bg-primary text-white hover:bg-[#3B5174] w-full md:w-1/3 h-12 p-4 rounded-md flex items-center justify-center"
           onClick={handleSubmit}
           disabled={loading}
         >
