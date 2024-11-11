@@ -98,8 +98,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 /*Login and Signup */
-.loginSection,
-.signupSection {
+.loginSection {
   @apply flex flex-col items-center justify-center text-wordColor gap-8;
   width: auto !important;
   height: max-content !important;
@@ -142,13 +141,19 @@ form [data-type="create-acount"] {
     display: none !important;
   }
 
-  .loginSection,
-  .signupSection {
+  .loginSection{
     @apply bg-bglogin bg-no-repeat bg-cover flex flex-grow w-full h-full;
     background-size: cover;
     position: relative;
     display: flex;
     flex-grow: 1;
+  }
+
+  .signupSection {
+    @apply bg-bgsignup;
+    width: auto !important;
+    height: max-content !important;
+    background-size: cover;
   }
 
   .loginSection::before,
