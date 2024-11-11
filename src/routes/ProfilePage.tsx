@@ -40,6 +40,8 @@ const Profile = () => {
               <h3 className="font-semibold text-gray-500">E-mail</h3>
               <p className="text-gray-500">{userData?.email}</p>
               <h3 className="font-semibold text-gray-500">Twitter/X</h3>
+              <h3 className="font-semibold text-gray-500">Instagram</h3>
+              <h3 className="font-semibold text-gray-500">LinkedIn</h3>
               <p className="text-gray-500">{userData?.socialNetworks?.twitter}</p>
               <h3 className="font-semibold text-gray-500">Instagram</h3>
               <p className="text-gray-500">{userData?.socialNetworks?.instagram}</p>
