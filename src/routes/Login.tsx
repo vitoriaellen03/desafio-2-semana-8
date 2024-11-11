@@ -1,11 +1,14 @@
 import logo from "/img/loginPhoto.png";
 import googleIcon from "/img/googleIcon.png";
 import facebookIcon from "/img/faceIcon.png";
+
 import { Link } from "react-router-dom";
 import { SignInButton } from "@clerk/clerk-react";
+
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { validateEmail, validatePassword } from "../types/validate";
+import { validateUser } from "../types/login";
 
 const Login = () => {
 
@@ -44,7 +47,7 @@ const Login = () => {
             />
             <span className="hidden" id="spanError">The password must be bigger than 8 characters, contain at least one capital letter, one number and special characters</span>
           </div>
-          <button type="submit" className="buttonDark self-center mt-6">Login</button>
+          <button className="buttonDark self-center mt-6" onClick={validateUser}>Login</button>
           <div className="flex flex-col gap-2 self-center text-center">
             <p>or sign in with...</p>
             <div className="flex gap-3">
