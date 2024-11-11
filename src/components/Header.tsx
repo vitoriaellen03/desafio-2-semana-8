@@ -15,8 +15,8 @@ const Header = () => {
           <ul className="nav-menu ">
             <li><a href="/">Home</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="/settings">Settings</a></li>
-            <li><a href="/profile">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
             <li>
               <div className="search">
                 <input type="text" placeholder="Search in site" />
