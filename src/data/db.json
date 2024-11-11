@@ -186,18 +186,19 @@
     },
     {
       "id": "142",
-      "firstName": "Adriano",
+      "firstName": "Dihh",
       "lastname": "Silva",
       "user": "@AdrianoSilva",
       "creationDate": "11/11/2024",
-      "email": "adriano@algo.com",
+      "email": "dih@something.com",
       "jobPosition": "Ful stack developer",
       "password": "Adri14n0#",
       "socialNetworks": {
-        "twitter": "",
-        "instagram": "",
-        "linkedin": ""
-      }
+        "twitter": "semtempo",
+        "instagram": "@adriano",
+        "linkedin": "adridev"
+      },
+      "lastName": "Silva"
     },
     {
       "id": "77",
