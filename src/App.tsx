@@ -116,13 +116,13 @@ function App() {
                         <div className="column max-column">
                             <form className="form" id="subscribeForm">
                                 <div className="group">
-                                    <label for="email">Email</label>
+                                    <label htmlFor="email">Email</label>
                                     <input type="email" id="email" name="email" placeholder="Enter your email" required />
                                     <span className="alert-form">We promise not to spam</span>
                                 </div>
 
                                 <div className="group">
-                                    <label for="name">Name</label>
+                                    <label htmlFor="name">Name</label>
                                     <input type="text" id="name" name="name" placeholder="Enter your name" required />
                                     <span className="alert-form"></span>
                                 </div>

@@ -1,44 +1,16 @@
 import logo from "/img/loginPhoto.png";
 import googleIcon from "/img/googleIcon.png";
 import facebookIcon from "/img/faceIcon.png";
+
 import { Link } from "react-router-dom";
 import { SignInButton } from "@clerk/clerk-react";
+
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { validateEmail, validatePassword } from "../types/validate";
+import { validateUser } from "../types/login";
 
 const Login = () => {
-
-  const validateEmail = () => {
-
-    const email = document.getElementById("email") as HTMLInputElement;
-    const emailRegex = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+$/i;
-
-    if (!emailRegex.test(email.value)) {
-      email.placeholder = "Invalid email";
-      email.classList.add("erro");
-    } else {
-      email.placeholder = "Enter your email";
-      email.classList.remove("erro");
-    }
-  } 
-
-  const validatePassword = () => {
-    
-    const password = document.getElementById("password") as HTMLInputElement;
-    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/i;
-    const span = document.getElementById("spanError") as HTMLSpanElement;
-
-    if (!passwordRegex.test(password.value)) {
-      span.classList.add("erro-message")
-      span.classList.remove("hidden");
-      password.classList.add("erro");
-    } else {
-      password.classList.remove("erro");
-      span.classList.remove("erro-message");
-      span.classList.add("hidden");
-    }
-  }
-  
 
   return (
     <>
@@ -75,7 +47,7 @@ const Login = () => {
             />
             <span className="hidden" id="spanError">The password must be bigger than 8 characters, contain at least one capital letter, one number and special characters</span>
           </div>
-          <button type="submit" className="buttonDark self-center mt-6">Login</button>
+          <button className="buttonDark self-center mt-6" onClick={validateUser}>Login</button>
           <div className="flex flex-col gap-2 self-center text-center">
             <p>or sign in with...</p>
             <div className="flex gap-3">
@@ -89,12 +61,12 @@ const Login = () => {
                     <img src={googleIcon} alt="Google icon" />
                   </button>
                 </SignInButton>
+              </div>
             </div>
-          </div>
-        </section>
-      </div>
-    </main>
-    <Footer />
+          </section>
+        </div>
+      </main>
+      <Footer />
     </>
   );
 };
